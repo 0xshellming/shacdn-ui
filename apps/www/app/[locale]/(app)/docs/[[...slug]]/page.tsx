@@ -77,17 +77,19 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<
   DocPageProps["params"][]
 > {
-  return allDocs.map((doc) => {
+  const DocPage = allDocs.map((doc) => {
     const [locale, ...slug] = doc.slugAsParams.split("/")
     return {
       slug,
       locale,
     }
   })
+  console.log('DocPage', DocPage)
+  return DocPage
 }
 
 export default async function DocPage({ params, ...rest }: DocPageProps) {
-  console.log("params", params)
+  // console.log("params", params)
   const doc = await getDocFromParams({ params })
 
   if (!doc) {
