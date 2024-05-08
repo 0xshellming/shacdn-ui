@@ -1,5 +1,5 @@
 import * as React from "react"
-import Link from "next/link"
+import { Link } from "@/navigation"
 
 import { cn } from "@/lib/utils"
 import AccordionDemo from "@/registry/default/example/accordion-demo"

@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { Link } from "@/navigation"
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons"
 import { Doc } from "contentlayer/generated"
 import { NavItem, NavItemWithChildren } from "types/nav"

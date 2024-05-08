@@ -1,4 +1,5 @@
-import Link from "next/link"
+import { Link } from "@/navigation"
+import { unstable_setRequestLocale } from "next-intl/server"
 
 import { ThemeWrapper } from "@/components/theme-wrapper"
 import { styles } from "@/registry/styles"
@@ -7,7 +8,11 @@ interface SinkLayoutProps {
   children: React.ReactNode
 }
 
-export default function SinkLayout({ children }: SinkLayoutProps) {
+export default function SinkLayout({
+  children,
+  params: { locale },
+}: SinkLayoutProps & { params: { locale: string } }) {
+  unstable_setRequestLocale(locale)
   return (
     <div className="flex flex-col">
       <div className="container">

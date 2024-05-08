@@ -3,7 +3,7 @@ import { allDocs } from "contentlayer/generated"
 
 import "@/styles/mdx.css"
 import type { Metadata } from "next"
-import Link from "next/link"
+import { Link } from "@/navigation"
 import { ChevronRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons"
 import Balancer from "react-wrap-balancer"
 

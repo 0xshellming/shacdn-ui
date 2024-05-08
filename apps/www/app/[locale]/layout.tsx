@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 import { Metadata, Viewport } from "next"
+import { unstable_setRequestLocale } from "next-intl/server"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -79,6 +80,7 @@ export default function LocaleLayout({
   children,
   params: { locale },
 }: RootLayoutProps & { params: { locale: string } }) {
+  unstable_setRequestLocale(locale)
   return (
     <>
       <html lang={locale} suppressHydrationWarning>

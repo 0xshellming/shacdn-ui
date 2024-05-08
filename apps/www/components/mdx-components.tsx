@@ -3,7 +3,7 @@
 
 import * as React from "react"
 import Image from "next/image"
-import Link from "next/link"
+import { Link } from "@/navigation"
 import { useMDXComponent } from "next-contentlayer/hooks"
 import { NpmCommands } from "types/unist"
 

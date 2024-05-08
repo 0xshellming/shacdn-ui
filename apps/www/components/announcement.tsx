@@ -1,4 +1,4 @@
-import Link from "next/link"
+import { Link } from "@/navigation"
 import { ArrowRightIcon } from "@radix-ui/react-icons"
 import { Blocks } from "lucide-react"
 
