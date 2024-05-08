@@ -34,7 +34,7 @@ export async function generateMetadata({
       "Tailwind CSS",
       "Server Components",
       "Radix UI",
-      ...siteConfig.keywords
+      ...siteConfig.keywords,
     ],
     authors: [
       {
@@ -123,19 +123,19 @@ export default function LocaleLayout({
               <NewYorkSonner />
             </NextIntlClientProvider>
           </ThemeProvider>
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-2VDJC7FNVL"
-            strategy="beforeInteractive"
-          ></Script>
-          <Script strategy="beforeInteractive">
-            {`
+        </body>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2VDJC7FNVL"
+          strategy="beforeInteractive"
+        ></Script>
+        <Script id="google-tag" strategy="beforeInteractive">
+          {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-2VDJC7FNVL');`}
-          </Script>
-        </body>
+        </Script>
       </html>
     </>
   )
