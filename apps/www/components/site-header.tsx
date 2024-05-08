@@ -9,6 +9,8 @@ import { MobileNav } from "@/components/mobile-nav"
 import { ModeToggle } from "@/components/mode-toggle"
 import { buttonVariants } from "@/registry/new-york/ui/button"
 
+import { LocaleToggle } from "./locale-toggle"
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -54,6 +56,7 @@ export function SiteHeader() {
                 <span className="sr-only">Twitter</span>
               </div>
             </Link>
+            <LocaleToggle />
             <ModeToggle />
           </nav>
         </div>
