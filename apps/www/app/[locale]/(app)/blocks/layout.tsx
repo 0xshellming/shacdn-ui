@@ -8,6 +8,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Button } from "@/registry/new-york/ui/button"
+import { unstable_setRequestLocale } from "next-intl/server"
 
 export const metadata: Metadata = {
   title: "Building Blocks.",
@@ -17,9 +18,13 @@ export const metadata: Metadata = {
 
 export default function BlocksLayout({
   children,
+  params: { locale },
 }: {
+  params: { locale: string }
   children: React.ReactNode
 }) {
+  unstable_setRequestLocale(locale)
+
   return (
     <div className="container relative">
       <PageHeader className="max-w-3xl">
