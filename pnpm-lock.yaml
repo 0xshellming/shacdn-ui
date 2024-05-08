@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@shikijs/core@1.1.7':
+    hash: 42sjvw3mrfqgbrcpgu2323b2da
+    path: patches/@shikijs__core@1.1.7.patch
+
 importers:
 
   .:
@@ -8840,11 +8845,11 @@ snapshots:
 
   '@shikijs/compat@1.1.7':
     dependencies:
-      '@shikijs/core': 1.1.7
+      '@shikijs/core': 1.1.7(patch_hash=42sjvw3mrfqgbrcpgu2323b2da)
       '@shikijs/transformers': 1.1.7
       shiki: 1.1.7
 
-  '@shikijs/core@1.1.7': {}
+  '@shikijs/core@1.1.7(patch_hash=42sjvw3mrfqgbrcpgu2323b2da)': {}
 
   '@shikijs/transformers@1.1.7':
     dependencies:
@@ -12993,7 +12998,7 @@ snapshots:
 
   shiki@1.1.7:
     dependencies:
-      '@shikijs/core': 1.1.7
+      '@shikijs/core': 1.1.7(patch_hash=42sjvw3mrfqgbrcpgu2323b2da)
 
   side-channel@1.0.4:
     dependencies:

@@ -4,9 +4,11 @@ import { getAllBlockIds } from "@/lib/blocks"
 import { BlockDisplay } from "@/components/block-display"
 
 export async function generateStaticParams() {
-  const BlocksPage = locales.map((locale) => ({
-    locale,
-  }))
+  const BlocksPage = locales
+    .filter((e) => e !== "cn")
+    .map((locale) => ({
+      locale,
+    }))
   console.log("DocPage", BlocksPage)
   return BlocksPage
 }

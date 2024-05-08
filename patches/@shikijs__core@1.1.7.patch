@@ -1,0 +1,16 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index e1efd3b535ae5170ca1925875cf4dd846664f72a..10f1840088bc46017154bff56e09b455bb86c7c1 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -4636,7 +4636,11 @@ async function main(init) {
+ let onigBinding = null;
+ let defaultDebugCall = false;
+ function throwLastOnigError(onigBinding) {
++  if (onigBinding && typeof onigBinding.UTF8ToString === 'function') {
+     throw new ShikiError(onigBinding.UTF8ToString(onigBinding.getLastOnigError()));
++  }
++  console.error('throwLastOnigError', typeof onigBinding,  onigBinding)
++  throw new ShikiError('onigBinding Error');
+ }
+ class UtfString {
+     static _utf8ByteLength(str) {

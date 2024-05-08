@@ -71,5 +71,10 @@
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.22",
     "typescript": "^5.4.2"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@shikijs/core@1.1.7": "patches/@shikijs__core@1.1.7.patch"
+    }
   }
 }
