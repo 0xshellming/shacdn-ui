@@ -1,9 +1,10 @@
 import "@/styles/globals.css"
 import { Metadata, Viewport } from "next"
+import Script from "next/script"
 import { NextIntlClientProvider, useMessages } from "next-intl"
 import { unstable_setRequestLocale } from "next-intl/server"
 
-import { siteConfig } from "@/config/site"
+import { siteConfigs } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { Analytics } from "@/components/analytics"
@@ -14,56 +15,65 @@ import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
 import { Toaster as NewYorkSonner } from "@/registry/new-york/ui/sonner"
 import { Toaster as NewYorkToaster } from "@/registry/new-york/ui/toaster"
 
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  metadataBase: new URL(siteConfig.url),
-  description: siteConfig.description,
-  keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
-  ],
-  authors: [
-    {
-      name: "shadcn",
-      url: "https://shadcn.com",
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string }
+}): Promise<Metadata> {
+  const siteConfig = siteConfigs[locale] || siteConfigs["en"]
+  const metadata: Metadata = {
+    title: {
+      default: siteConfig.name,
+      template: `%s - ${siteConfig.name}`,
     },
-  ],
-  creator: "shadcn",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: siteConfig.url,
-    title: siteConfig.name,
+    metadataBase: new URL(siteConfig.url),
     description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
+    keywords: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Server Components",
+      "Radix UI",
+      ...siteConfig.keywords
+    ],
+    authors: [
       {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
+        name: "shadcn",
+        url: "https://shadcn.com",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@shadcn",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+    creator: "shadcn",
+    openGraph: {
+      type: "website",
+      locale: "en_US",
+      url: siteConfig.url,
+      title: siteConfig.name,
+      description: siteConfig.description,
+      siteName: siteConfig.name,
+      images: [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: siteConfig.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteConfig.name,
+      description: siteConfig.description,
+      images: [siteConfig.ogImage],
+      creator: "@shadcn",
+    },
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon-16x16.png",
+      apple: "/apple-touch-icon.png",
+    },
+    manifest: `${siteConfig.url}/site.webmanifest`,
+  }
+  return metadata
 }
 
 export const viewport: Viewport = {
@@ -113,6 +123,18 @@ export default function LocaleLayout({
               <NewYorkSonner />
             </NextIntlClientProvider>
           </ThemeProvider>
+          <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-2VDJC7FNVL"
+            strategy="beforeInteractive"
+          ></Script>
+          <Script strategy="beforeInteractive">
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2VDJC7FNVL');`}
+          </Script>
         </body>
       </html>
     </>
