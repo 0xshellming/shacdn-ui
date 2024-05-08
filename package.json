@@ -13,6 +13,7 @@
     "packages/*",
     "templates/*"
   ],
+  "package-manager-strict": false,
   "scripts": {
     "build": "turbo run build",
     "build:cli": "turbo --filter=shadcn-ui build",
