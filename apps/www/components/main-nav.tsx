@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { usePathname } from "next/navigation"
+import { usePathname } from "@/navigation"
 import { Link } from "@/navigation"
 
 import { siteConfig } from "@/config/site"

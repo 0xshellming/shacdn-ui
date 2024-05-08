@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useRouter } from "next/navigation"
+import { useRouter } from "@/navigation"
 import { DialogProps } from "@radix-ui/react-alert-dialog"
 import {
   CircleIcon,

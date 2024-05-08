@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname } from "@/navigation"
 import { SidebarNavItem } from "types/nav"
 
 import { cn } from "@/lib/utils"
