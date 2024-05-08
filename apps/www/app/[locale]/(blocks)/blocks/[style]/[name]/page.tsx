@@ -58,13 +58,18 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   const blockIds = await getAllBlockIds()
-  return styles
+  return [
+    {
+      name: "default",
+      label: "Default",
+    },
+  ]
     .map((style) =>
       locales.map((locale) =>
         blockIds.map((name) => ({
           style: style.name,
           name,
-          locale
+          locale,
         }))
       )
     )
