@@ -2,18 +2,25 @@
   "Index": {
     "header": {
       "heading": "构建你的组件库",
-      "description": "设计精美的组件，您可以复制并粘贴到您的应用程序中。无障碍。可定制。开放源码。",
+      "description": "设计精美的组件，您可以复制并粘贴到您的应用程序中。可访问、可定制、开源。",
       "getStarted": "快速开始"
     }
   },
   "Examples": {
     "Layout": {
       "check-out-some-examples": "使用案例",
+      "examples": "示例",
       "description": "仪表盘、卡片、身份验证。一些使用组件构建的示例。以此为指导构建您自己的应用程序。"
     }
   },
   "Global": {
     "get-started": "快速开始",
-    "components": "组件"
+    "components": "组件",
+    "docs": "文档",
+    "themes": "主题",
+    "examples": "示例",
+    "blocks": "模块",
+    "search": "搜索",
+    "search-documentation": "搜索文档"
   }
 }

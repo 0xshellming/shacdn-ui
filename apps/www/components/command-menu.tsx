@@ -10,6 +10,7 @@ import {
   MoonIcon,
   SunIcon,
 } from "@radix-ui/react-icons"
+import { useTranslations } from "next-intl"
 import { useTheme } from "next-themes"
 
 import { docsConfig } from "@/config/docs"
@@ -29,6 +30,7 @@ export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter()
   const [open, setOpen] = React.useState(false)
   const { setTheme } = useTheme()
+  const t = useTranslations()
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -66,8 +68,10 @@ export function CommandMenu({ ...props }: DialogProps) {
         onClick={() => setOpen(true)}
         {...props}
       >
-        <span className="hidden lg:inline-flex">Search documentation...</span>
-        <span className="inline-flex lg:hidden">Search...</span>
+        <span className="hidden lg:inline-flex">
+          {t("Global.search-documentation")}
+        </span>
+        <span className="inline-flex lg:hidden">{t('Global.search')}...</span>
         <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
           <span className="text-xs">⌘</span>K
         </kbd>

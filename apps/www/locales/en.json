@@ -13,5 +13,14 @@
       "description": "Dashboard, cards, authentication. Some examples built using the components. Use this as a guide to build your own."
     }
   },
-  "Global": { "components": "Components", "get-started": "Get Started" }
+  "Global": {
+    "components": "Components",
+    "get-started": "Get Started",
+    "docs": "Docs",
+    "themes": "Themes",
+    "examples": "Examples",
+    "blocks": "Blocks",
+    "search-documentation": "Search documentation...",
+    "search": "Search"
+  }
 }

@@ -1,5 +1,6 @@
 import "@/styles/globals.css"
 import { Metadata, Viewport } from "next"
+import { NextIntlClientProvider, useMessages } from "next-intl"
 import { unstable_setRequestLocale } from "next-intl/server"
 
 import { siteConfig } from "@/config/site"
@@ -81,6 +82,7 @@ export default function LocaleLayout({
   params: { locale },
 }: RootLayoutProps & { params: { locale: string } }) {
   unstable_setRequestLocale(locale)
+  const messages = useMessages()
   return (
     <>
       <html lang={locale} suppressHydrationWarning>
@@ -97,17 +99,19 @@ export default function LocaleLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div vaul-drawer-wrapper="">
-              <div className="relative flex min-h-screen flex-col bg-background">
-                {children}
+            <NextIntlClientProvider messages={messages}>
+              <div vaul-drawer-wrapper="">
+                <div className="relative flex min-h-screen flex-col bg-background">
+                  {children}
+                </div>
               </div>
-            </div>
-            <TailwindIndicator />
-            <ThemeSwitcher />
-            <Analytics />
-            <NewYorkToaster />
-            <DefaultToaster />
-            <NewYorkSonner />
+              <TailwindIndicator />
+              <ThemeSwitcher />
+              <Analytics />
+              <NewYorkToaster />
+              <DefaultToaster />
+              <NewYorkSonner />
+            </NextIntlClientProvider>
           </ThemeProvider>
         </body>
       </html>

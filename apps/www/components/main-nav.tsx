@@ -1,16 +1,19 @@
 "use client"
 
 import * as React from "react"
-import { usePathname } from "@/navigation"
-import { Link } from "@/navigation"
+import { Link, usePathname } from "@/navigation"
+import { useLocale, useTranslations } from "next-intl"
 
-import { siteConfig } from "@/config/site"
+import { siteConfigs } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import { Badge } from "@/registry/new-york/ui/badge"
 
 export function MainNav() {
   const pathname = usePathname()
+  const locale = useLocale()
+  const siteConfig = siteConfigs[locale]
+  const t = useTranslations()
 
   return (
     <div className="mr-4 hidden md:flex">
@@ -28,7 +31,7 @@ export function MainNav() {
             pathname === "/docs" ? "text-foreground" : "text-foreground/60"
           )}
         >
-          Docs
+          {t("Global.docs")}
         </Link>
         <Link
           href="/docs/components"
@@ -39,7 +42,7 @@ export function MainNav() {
               : "text-foreground/60"
           )}
         >
-          Components
+          {t('Global.components')}
         </Link>
         <Link
           href="/themes"
@@ -50,7 +53,7 @@ export function MainNav() {
               : "text-foreground/60"
           )}
         >
-          Themes
+          {t('Global.themes')}
         </Link>
         <Link
           href="/examples"
@@ -61,7 +64,7 @@ export function MainNav() {
               : "text-foreground/60"
           )}
         >
-          Examples
+          {t('Global.examples')}
         </Link>
         <Link
           href="/blocks"
@@ -72,7 +75,7 @@ export function MainNav() {
               : "text-foreground/60"
           )}
         >
-          Blocks
+          {t('Global.blocks')}
         </Link>
         <Link
           href={siteConfig.links.github}
