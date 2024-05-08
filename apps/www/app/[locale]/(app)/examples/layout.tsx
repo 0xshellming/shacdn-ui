@@ -1,5 +1,6 @@
 import { Metadata } from "next"
-import Link from "next/link"
+import { Link } from "@/navigation"
+import { useTranslations } from "next-intl"
 
 import { cn } from "@/lib/utils"
 import { Announcement } from "@/components/announcement"
@@ -22,21 +23,22 @@ interface ExamplesLayoutProps {
 }
 
 export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
+  const $t = useTranslations("Global")
+  const t = useTranslations("Examples.Layout")
   return (
     <div className="container relative">
       <PageHeader>
         <Announcement />
         <PageHeaderHeading className="hidden md:block">
-          Check out some examples
+          {t("check-out-some-examples")}
         </PageHeaderHeading>
-        <PageHeaderHeading className="md:hidden">Examples</PageHeaderHeading>
-        <PageHeaderDescription>
-          Dashboard, cards, authentication. Some examples built using the
-          components. Use this as a guide to build your own.
-        </PageHeaderDescription>
+        <PageHeaderHeading className="md:hidden">
+          {t("examples")}
+        </PageHeaderHeading>
+        <PageHeaderDescription>{t("description")}</PageHeaderDescription>
         <PageActions>
           <Link href="/docs" className={cn(buttonVariants(), "rounded-[6px]")}>
-            Get Started
+            {$t("get-started")}
           </Link>
           <Link
             href="/components"
@@ -45,7 +47,7 @@ export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
               "rounded-[6px]"
             )}
           >
-            Components
+            {$t("components")}
           </Link>
         </PageActions>
       </PageHeader>

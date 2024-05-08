@@ -18,6 +18,7 @@ import MailPage from "@/app/[locale]/(app)/examples/mail/page"
 
 export default function IndexPage() {
   const t = useTranslations("Index")
+  const $t = useTranslations("Global")
   return (
     <div className="container relative">
       <PageHeader>
@@ -26,7 +27,7 @@ export default function IndexPage() {
         <PageHeaderDescription>{t("header.description")}</PageHeaderDescription>
         <PageActions>
           <Link href="/docs" className={cn(buttonVariants())}>
-            {t("header.getStarted")}
+            {$t("get-started")}
           </Link>
           <Link
             target="_blank"

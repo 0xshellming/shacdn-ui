@@ -3,7 +3,15 @@
     "header": {
       "heading": "Build your component library",
       "description": "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
-      "getStarted": "Get Started"
+      "get-started": "Get Started"
     }
-  }
+  },
+  "Examples": {
+    "Layout": {
+      "check-out-some-examples": "Check out some examples",
+      "examples": "Examples",
+      "description": "Dashboard, cards, authentication. Some examples built using the components. Use this as a guide to build your own."
+    }
+  },
+  "Global": { "components": "Components", "get-started": "Get Started" }
 }
