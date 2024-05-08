@@ -68,7 +68,7 @@ export async function generateStaticParams() {
         }))
       )
     )
-    .flat()
+    .flat(Infinity)
 }
 
 export default async function BlockPage({
