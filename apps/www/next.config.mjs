@@ -7,9 +7,9 @@ export const locales = ["en", "cn"]
 const localeRedirects = (redirects) => {
   return locales.reduce((cur, locale) => {
     return [...cur, ...redirects.map(redirect => ({
+      ...redirect,
       source: `/${locale}${redirect.source}`,
       destination: `/${locale}${redirect.destination}`,
-      ...redirect
     }))]
   }, [])
 }
@@ -32,7 +32,7 @@ const nextConfig = {
     ],
   },
   redirects() {
-    return localeRedirects([
+    const r = localeRedirects([
       {
         source: "/components",
         destination: "/docs/components/accordion",
@@ -69,6 +69,8 @@ const nextConfig = {
         permanent: false,
       },
     ])
+    console.log('r', r)
+    return r
   },
 }
 

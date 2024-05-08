@@ -25,8 +25,10 @@ interface DocPageProps {
 
 async function getDocFromParams({ params }: DocPageProps) {
   const slug = params.slug?.join("/") || ""
-  const doc = allDocs.find(
-    (doc) => `${params.locale}/${slug}` === doc.slugAsParams
+  const doc = allDocs.find((doc) =>
+    slug
+      ? `${params.locale}/${slug}` === doc.slugAsParams
+      : params.locale === doc.slugAsParams
   )
 
   if (!doc) {
