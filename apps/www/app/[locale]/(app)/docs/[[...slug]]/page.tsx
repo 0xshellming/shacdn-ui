@@ -3,6 +3,7 @@ import { allDocs } from "contentlayer/generated"
 
 import "@/styles/mdx.css"
 import type { Metadata } from "next"
+import { defaultLocale } from "@/i18n"
 import { Link } from "@/navigation"
 import { ChevronRightIcon, ExternalLinkIcon } from "@radix-ui/react-icons"
 import Balancer from "react-wrap-balancer"
@@ -18,17 +19,19 @@ import { ScrollArea } from "@/registry/new-york/ui/scroll-area"
 
 interface DocPageProps {
   params: {
-    locale: string
+    locale?: string
     slug: string[]
   }
 }
 
 async function getDocFromParams({ params }: DocPageProps) {
   const slug = params.slug?.join("/") || ""
+  const locale = params.locale || defaultLocale
+  console.log("doc", locale, params.slug)
   const doc = allDocs.find((doc) =>
     slug
-      ? `${params.locale}/${slug}` === doc.slugAsParams
-      : params.locale === doc.slugAsParams
+      ? `${locale}/${slug}` === doc.slugAsParams
+      : locale === doc.slugAsParams
   )
 
   if (!doc) {
@@ -79,17 +82,19 @@ export async function generateStaticParams(): Promise<
 > {
   const DocPage = allDocs.map((doc) => {
     const [locale, ...slug] = doc.slugAsParams.split("/")
-    return {
+    const ret: any = {
       slug,
-      locale,
     }
+    if (locale && locale !== defaultLocale) {
+      ret.locale = locale
+    }
+    return ret
   })
-  console.log('DocPage', DocPage)
+  console.log("DocPage", DocPage)
   return DocPage
 }
 
 export default async function DocPage({ params, ...rest }: DocPageProps) {
-  // console.log("params", params)
   const doc = await getDocFromParams({ params })
 
   if (!doc) {

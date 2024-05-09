@@ -1,13 +1,13 @@
-import { locales } from "@/i18n"
+import { defaultLocale, locales } from "@/i18n"
 
 import { getAllBlockIds } from "@/lib/blocks"
 import { BlockDisplay } from "@/components/block-display"
 
 export async function generateStaticParams() {
-  const BlocksPage = locales
-    .map((locale) => ({
-      locale,
-    }))
+  const BlocksPage = locales.map((locale) => ({
+    locale,
+    // locale: locale === defaultLocale ? undefined : locale,
+  }))
   console.log("DocPage", BlocksPage)
   return BlocksPage
 }

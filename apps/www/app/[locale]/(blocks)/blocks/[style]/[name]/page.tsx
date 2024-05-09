@@ -8,7 +8,7 @@ import { Style, styles } from "@/registry/styles"
 
 import "@/styles/mdx.css"
 import "public/registry/themes.css"
-import { locales } from "@/i18n"
+import { defaultLocale, locales } from "@/i18n"
 import { AnimatePresence } from "framer-motion"
 
 import { BlockChunk } from "@/components/block-chunk"
@@ -69,7 +69,7 @@ export async function generateStaticParams() {
         blockIds.map((name) => ({
           style: style.name,
           name,
-          locale,
+          locale: locale === defaultLocale ? undefined : locale,
         }))
       )
     )
