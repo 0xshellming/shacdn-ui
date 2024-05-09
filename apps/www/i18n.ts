@@ -1,12 +1,14 @@
 import { notFound } from "next/navigation"
 import { getRequestConfig } from "next-intl/server"
 
-export const locales = ["en", "cn"] as const
+export const locales = ["en", "zh"] as const
 
 export const localeNames: { [key: string]: string } = {
   en: "English",
-  cn: "简体中文",
+  zh: "简体中文",
 }
+
+export const defaultLocale = "zh"
 
 export const getLocaleName = (locale: string) => localeNames[locale] || locale
 

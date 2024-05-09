@@ -2,10 +2,11 @@ import { createContentlayerPlugin } from "next-contentlayer"
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
-export const locales = ["en", "cn"]
+export const locales = ["en", "zh"]
 
 const localeRedirects = (redirects) => {
-  return locales.reduce((cur, locale) => {
+  // 默认路由不需要加 locale
+  return locales.filter((e) => e !== 'zh').reduce((cur, locale) => {
     return [...cur, ...redirects.map(redirect => ({
       ...redirect,
       source: `/${locale}${redirect.source}`,
