@@ -1,19 +1,19 @@
 ---
 title: CLI
-description: Use the CLI to add components to your project.
+description: 使用CLI向项目添加组件。
 ---
 
 ## init
 
-Use the `init` command to initialize configuration and dependencies for a new project.
+使用 `init` 命令来初始化新项目的配置和依赖项。
 
-The `init` command installs dependencies, adds the `cn` util, configures `tailwind.config.js`, and CSS variables for the project.
+`init` 命令会安装依赖项，添加 `cn` 工具，配置 `tailwind.config.js`，以及为项目设置 CSS 变量。
 
 ```bash
 npx shadcn-ui@latest init
 ```
 
-You will be asked a few questions to configure `components.json`:
+您将被要求回答一些问题以配置 `components.json`:
 
 ```txt showLineNumbers
 Would you like to use TypeScript (recommended)? no/yes
@@ -27,32 +27,32 @@ Configure the import alias for utils: › @/lib/utils
 Are you using React Server Components? › no / yes
 ```
 
-### Options
+### 选项
 
 ```txt
-Usage: shadcn-ui init [options]
+使用方式: shadcn-ui init [options]
 
-initialize your project and install dependencies
+初始化您的项目并安装依赖项
 
-Options:
-  -y, --yes        skip confirmation prompt. (default: false)
-  -c, --cwd <cwd>  the working directory. defaults to the current directory.
-  -h, --help       display help for command
+选项:
+  -y, --yes        跳过确认提示。（默认：false）
+  -c, --cwd <cwd>  工作目录。默认为当前目录。
+  -h, --help       显示命令帮助信息
 ```
 
 ## add
 
-Use the `add` command to add components and dependencies to your project.
+使用 `add` 命令向项目添加组件和依赖项。
 
 ```bash
 npx shadcn-ui@latest add [component]
 ```
 
-You will be presented with a list of components to choose from:
+您将看到一个组件列表，可以选择要添加的组件：
 
 ```txt
-Which components would you like to add? › Space to select. A to toggle all.
-Enter to submit.
+您想添加哪些组件？› 选择空格选中。A 切换全部。
+回车提交。
 
 ◯  accordion
 ◯  alert
@@ -66,36 +66,36 @@ Enter to submit.
 ◯  checkbox
 ```
 
-### Options
+### 选项
 
 ```txt
-Usage: shadcn-ui add [options] [components...]
+使用方式: shadcn-ui add [options] [components...]
 
-add a component to your project
+向项目添加组件
 
-Arguments:
-  components         the components to add
+参数:
+  components         要添加的组件
 
-Options:
-  -y, --yes          skip confirmation prompt. (default: false)
-  -o, --overwrite    overwrite existing files. (default: false)
-  -c, --cwd <cwd>    the working directory. defaults to the current directory.
-  -p, --path <path>  the path to add the component to.
-  -h, --help         display help for command
+选项:
+  -y, --yes          跳过确认提示。（默认：false）
+  -o, --overwrite    覆盖现有文件。（默认：false）
+  -c, --cwd <cwd>    工作目录。默认为当前目录。
+  -p, --path <path>  要添加组件的路径。
+  -h, --help         显示命令帮助信息
 ```
 
-## diff (experimental)
+## diff（实验性功能）
 
-You can use the diff command to check for updates against the registry.
+您可以使用 diff 命令来检查与注册表的更新。
 
-Run the following command to get a list of components that have updates available:
+运行以下命令以获取可用更新的组件列表：
 
 ```bash
 npx shadcn-ui diff
 ```
 
 ```txt
-The following components have updates available:
+以下组件有可用更新：
 - alert
   - /path/to/my-app/components/ui/alert.tsx
 - button
@@ -105,7 +105,7 @@ The following components have updates available:
   - /path/to/my-app/components/ui/toaster.tsx
 ```
 
-Then run `diff [component]` to see the changes:
+然后运行 `diff [component]` 来查看更改：
 
 ```bash
 npx shadcn-ui diff alert
@@ -118,18 +118,18 @@ const alertVariants = cva(
 )
 ```
 
-### Options
+### 选项
 
 ```txt
-Usage: shadcn-ui diff [options] [component]
+使用方式: shadcn-ui diff [options] [component]
 
-check for updates against the registry
+检查是否有更新的组件
 
-Arguments:
-  component        the component name
+参数:
+  component        组件名称
 
-Options:
-  -y, --yes        skip confirmation prompt. (default: false)
-  -c, --cwd <cwd>  the working directory. defaults to the current directory.
-  -h, --help       display help for command
+选项:
+  -y, --yes        跳过确认提示。（默认：false）
+  -c, --cwd <cwd>  工作目录。默认为当前目录。
+  -h, --help       显示命令帮助信息
 ```
