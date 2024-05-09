@@ -6,11 +6,12 @@ export const locales = ["en", "zh"]
 
 const localeRedirects = (redirects) => {
   // 默认路由不需要加 locale
-  return locales.filter((e) => e !== 'zh').reduce((cur, locale) => {
+  return locales.reduce((cur, locale) => {
+    const isDefault = locale === 'zh'
     return [...cur, ...redirects.map(redirect => ({
       ...redirect,
-      source: `/${locale}${redirect.source}`,
-      destination: `/${locale}${redirect.destination}`,
+      source: isDefault ? redirect.source : `/${locale}${redirect.source}`,
+      destination: isDefault ? redirect.destination : `/${locale}${redirect.destination}`,
     }))]
   }, [])
 }
