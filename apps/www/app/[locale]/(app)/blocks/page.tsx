@@ -5,7 +5,6 @@ import { BlockDisplay } from "@/components/block-display"
 
 export async function generateStaticParams() {
   const BlocksPage = locales
-    .filter((e) => e !== "cn")
     .map((locale) => ({
       locale,
     }))
