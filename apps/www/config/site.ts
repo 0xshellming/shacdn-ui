@@ -25,7 +25,7 @@ export const cnSiteConfig = {
 
 export const siteConfigs: { [key: string]: typeof siteConfig } = {
   en: siteConfig,
-  cn: cnSiteConfig,
+  zh: cnSiteConfig,
 }
 
 export type SiteConfig = typeof siteConfig
