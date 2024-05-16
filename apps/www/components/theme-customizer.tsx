@@ -46,11 +46,13 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/registry/new-york/ui/tooltip"
+import { useTranslations } from "next-intl"
 
 export function ThemeCustomizer() {
   const [config, setConfig] = useConfig()
   const { resolvedTheme: mode } = useTheme()
   const [mounted, setMounted] = React.useState(false)
+  const t = useTranslations()
 
   React.useEffect(() => {
     setMounted(true)
@@ -62,7 +64,7 @@ export function ThemeCustomizer() {
         <DrawerTrigger asChild>
           <Button variant="outline" className="md:hidden">
             <Paintbrush className="mr-2 h-4 w-4" />
-            Customize
+            {t('Global.customize')}
           </Button>
         </DrawerTrigger>
         <DrawerContent className="p-6 pt-0">
@@ -143,7 +145,7 @@ export function ThemeCustomizer() {
           <PopoverTrigger asChild>
             <Button variant="outline">
               <Paintbrush className="mr-2 h-4 w-4" />
-              Customize
+              {t('Global.customize')}
             </Button>
           </PopoverTrigger>
           <PopoverContent
@@ -364,6 +366,7 @@ function Customizer() {
 }
 
 function CopyCodeButton() {
+  const t = useTranslations()
   const [config] = useConfig()
   const activeTheme = themes.find((theme) => theme.name === config.theme)
   const [hasCopied, setHasCopied] = React.useState(false)
@@ -400,7 +403,7 @@ function CopyCodeButton() {
       )}
       <Dialog>
         <DialogTrigger asChild>
-          <Button className="hidden md:flex">Copy code</Button>
+          <Button className="hidden md:flex">{t('Global.CopyCode')}</Button>
         </DialogTrigger>
         <DialogContent className="max-w-2xl outline-none">
           <DialogHeader>

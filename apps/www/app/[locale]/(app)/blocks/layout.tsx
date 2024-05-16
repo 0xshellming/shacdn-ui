@@ -1,4 +1,6 @@
 import { Metadata } from "next"
+import { useTranslations } from "next-intl"
+import { unstable_setRequestLocale } from "next-intl/server"
 
 import { Announcement } from "@/components/announcement"
 import {
@@ -8,7 +10,6 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Button } from "@/registry/new-york/ui/button"
-import { unstable_setRequestLocale } from "next-intl/server"
 
 export const metadata: Metadata = {
   title: "Building Blocks.",
@@ -23,6 +24,8 @@ export default function BlocksLayout({
   params: { locale: string }
   children: React.ReactNode
 }) {
+  const $t = useTranslations()
+
   unstable_setRequestLocale(locale)
 
   return (
@@ -30,11 +33,9 @@ export default function BlocksLayout({
       <PageHeader className="max-w-3xl">
         <Announcement />
         <PageHeaderHeading className="text-balance">
-          Building Blocks for the Web
+          {$t("Blocks.building-blocks-for-the-web")}
         </PageHeaderHeading>
-        <PageHeaderDescription>
-          Beautifully designed. Copy and paste into your apps. Open Source.
-        </PageHeaderDescription>
+        <PageHeaderDescription>{$t("Blocks.desc")}</PageHeaderDescription>
         <PageActions>
           <Button asChild>
             <a href="#blocks">Browse</a>

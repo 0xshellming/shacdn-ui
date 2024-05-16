@@ -1,7 +1,7 @@
 {
   "Index": {
     "header": {
-      "heading": "Build your component library",
+      "heading": "Build your component library with shadcn/ui rapidly",
       "description": "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source."
     }
   },
@@ -12,6 +12,10 @@
       "description": "Dashboard, cards, authentication. Some examples built using the components. Use this as a guide to build your own."
     }
   },
+  "Blocks": {
+    "building-blocks-for-the-web": "Building Blocks for the Web",
+    "desc": "Beautifully designed. Copy and paste into your apps. Open Source."
+  },
   "Global": {
     "components": "Components",
     "get-started": "Get Started",
@@ -21,6 +25,12 @@
     "blocks": "Blocks",
     "search-documentation": "Search documentation...",
     "search": "Search",
-    "locales": "English"
+    "locales": "English",
+    "customize": "Customize",
+    "CopyCode": "Copy code"
+  },
+  "Themes": {
+    "title": "Add colors. Make it yours.",
+    "desc": "Hand-picked themes that you can copy and paste into your apps."
   }
 }

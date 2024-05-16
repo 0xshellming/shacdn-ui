@@ -11,6 +11,7 @@ import {
 import { ThemeCustomizer } from "@/components/theme-customizer"
 import { ThemeWrapper } from "@/components/theme-wrapper"
 import { ThemesTabs } from "@/app/[locale]/(app)/themes/tabs"
+import { useTranslations } from "next-intl"
 
 export const metadata: Metadata = {
   title: "Themes",
@@ -18,6 +19,8 @@ export const metadata: Metadata = {
 }
 
 export default function ThemesPage() {
+  const t = useTranslations()
+
   return (
     <div className="container">
       <ThemeWrapper
@@ -27,13 +30,13 @@ export default function ThemesPage() {
         <PageHeader>
           <Announcement />
           <PageHeaderHeading className="hidden md:block">
-            Add colors. Make it yours.
+            {t('Themes.title')}
           </PageHeaderHeading>
           <PageHeaderHeading className="md:hidden">
             Make it yours
           </PageHeaderHeading>
           <PageHeaderDescription>
-            Hand-picked themes that you can copy and paste into your apps.
+            {t('Themes.desc')}
           </PageHeaderDescription>
           <PageActions>
             <ThemeCustomizer />

@@ -1,6 +1,8 @@
 "use client"
 
 import * as React from "react"
+import { defaultLocale } from "@/i18n"
+import { useLocale } from "next-intl"
 import { ImperativePanelHandle } from "react-resizable-panels"
 
 import { cn } from "@/lib/utils"
@@ -15,7 +17,6 @@ import {
 } from "@/registry/new-york/ui/resizable"
 import { Tabs, TabsContent } from "@/registry/new-york/ui/tabs"
 import { Block } from "@/registry/schema"
-import { useLocale } from "next-intl"
 
 export function BlockPreview({
   block,
@@ -23,6 +24,7 @@ export function BlockPreview({
   block: Block & { hasLiftMode: boolean }
 }) {
   const locale = useLocale()
+  const isDefaultLocale = locale === defaultLocale
   const [config] = useConfig()
   const { isLiftMode } = useLiftMode(block.name)
   const [isLoading, setIsLoading] = React.useState(true)
@@ -65,7 +67,9 @@ export function BlockPreview({
               </div>
             ) : null}
             <iframe
-              src={`/${locale}/blocks/${block.style}/${block.name}`}
+              src={`${isDefaultLocale ? "" : "/" + locale}/blocks/${
+                block.style
+              }/${block.name}`}
               height={block.container?.height}
               className="chunk-mode relative z-20 w-full bg-background"
               onLoad={() => {
