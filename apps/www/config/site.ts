@@ -1,3 +1,4 @@
+export const siteHost = "https://www.shadcn.net"
 export const siteConfig = {
   name: "shadcn/ui",
   url: "https://www.shadcn.net",
@@ -8,7 +9,7 @@ export const siteConfig = {
     twitter: "https://twitter.com/QuXiaoMing",
     github: "https://github.com/shadcn-ui/ui",
   },
-  keywords: ['shadcn ui'],
+  keywords: ["shadcn ui"],
 }
 export const cnSiteConfig = {
   name: "shadcn/ui 中文站",
@@ -20,7 +21,7 @@ export const cnSiteConfig = {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn-ui/ui",
   },
-  keywords: ['shadcn ui 中文'],
+  keywords: ["shadcn ui 中文"],
 }
 
 export const siteConfigs: { [key: string]: typeof siteConfig } = {
