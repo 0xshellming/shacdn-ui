@@ -6,10 +6,9 @@ import { BlockDisplay } from "@/components/block-display"
 
 export async function generateStaticParams() {
   const BlocksPage = locales.map((locale) => ({
-    // locale,
-    locale: locale === defaultLocale ? undefined : locale,
+    locale,
+    // locale: locale === defaultLocale ? undefined : locale,
   }))
-  console.log("DocPage", BlocksPage)
   return BlocksPage
 }
 
