@@ -67,9 +67,7 @@ export function BlockPreview({
               </div>
             ) : null}
             <iframe
-              src={`${isDefaultLocale ? "" : "/" + locale}/blocks/${
-                block.style
-              }/${block.name}`}
+              src={`/en/blocks/${block.style}/${block.name}`}
               height={block.container?.height}
               className="chunk-mode relative z-20 w-full bg-background"
               onLoad={() => {
