@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { Link } from "@/navigation"
 import { useTranslations } from "next-intl"
+import { unstable_setRequestLocale } from "next-intl/server"
 
 import { cn } from "@/lib/utils"
 import { Announcement } from "@/components/announcement"
@@ -22,7 +23,12 @@ interface ExamplesLayoutProps {
   children: React.ReactNode
 }
 
-export default function ExamplesLayout({ children }: ExamplesLayoutProps) {
+export default function ExamplesLayout({
+  children,
+  params: { locale },
+}: ExamplesLayoutProps & { params: { locale: string } }) {
+  unstable_setRequestLocale(locale)
+
   const $t = useTranslations("Global")
   const t = useTranslations("Examples.Layout")
   return (
