@@ -71,7 +71,6 @@ const nextConfig = {
         permanent: false,
       },
     ])
-    console.log('r', r)
     return r
   },
 }

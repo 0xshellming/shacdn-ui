@@ -27,7 +27,7 @@ interface DocPageProps {
 async function getDocFromParams({ params }: DocPageProps) {
   const slug = params.slug?.join("/") || ""
   const locale = params.locale || defaultLocale
-  console.log("doc", locale, params.slug)
+  // console.log("doc", locale, params.slug)
   const doc = allDocs.find((doc) =>
     slug
       ? `${locale}/${slug}` === doc.slugAsParams
@@ -90,7 +90,7 @@ export async function generateStaticParams(): Promise<
     }
     return ret
   })
-  console.log("DocPage", DocPage)
+  // console.log("DocPage", DocPage)
   return DocPage
 }
 
