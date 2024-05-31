@@ -1,18 +1,18 @@
 ---
-title: Badge
-description: Displays a badge or a component that looks like a badge.
+title: 徽章
+description: 显示徽章或看起来像是徽章的组件。
 component: true
 ---
 
-<ComponentPreview name="badge-demo" description="A badge" />
+<ComponentPreview name="badge-demo" description="一个徽章" />
 
-## Installation
+## 安装
 
 <Tabs defaultValue="cli">
 
 <TabsList>
   <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="manual">手动</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
@@ -26,11 +26,11 @@ npx shadcn-ui@latest add badge
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>复制并粘贴以下代码到你的项目中。</Step>
 
 <ComponentSource name="badge" />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>更新导入路径以匹配你的项目设置.</Step>
 
 </Steps>
 
@@ -38,54 +38,54 @@ npx shadcn-ui@latest add badge
 
 </Tabs>
 
-## Usage
+## 使用
 
 ```tsx
 import { Badge } from "@/components/ui/badge"
 ```
 
 ```tsx
-<Badge variant="outline">Badge</Badge>
+<Badge variant="outline">徽章</Badge>
 ```
 
-### Link
+### 链接
 
-You can use the `badgeVariants` helper to create a link that looks like a badge.
+你可以使用`badgeVariants`帮助器创建一个看起来像徽章的链接。
 
 ```tsx
 import { badgeVariants } from "@/components/ui/badge"
 ```
 
 ```tsx
-<Link className={badgeVariants({ variant: "outline" })}>Badge</Link>
+<Link className={badgeVariants({ variant: "outline" })}>徽章</Link>
 ```
 
-## Examples
+## 示例
 
-### Default
+### 默认
 
-<ComponentPreview name="badge-demo" description="A badge" />
+<ComponentPreview name="badge-demo" description="一个徽章" />
 
 ---
 
-### Secondary
+### 次要
 
 <ComponentPreview
   name="badge-secondary"
-  description="A badge using secondary as variant."
+  description="使用次要作为变体的徽章。"
 />
 
 ---
 
-### Outline
+### 轮廓
 
 <ComponentPreview
   name="badge-outline"
-  description="A badge using outline as variant."
+  description="使用轮廓作为变体的徽章。"
 />
 
 ---
 
-### Destructive
+### 毁灭性的
 
-<ComponentPreview name="badge-destructive" description="A destructive badge." />
+<ComponentPreview name="badge-destructive" description="一个具有破坏性的徽章。" />

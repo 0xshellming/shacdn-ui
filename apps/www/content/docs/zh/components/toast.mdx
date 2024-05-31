@@ -1,6 +1,6 @@
 ---
-title: Toast
-description: A succinct message that is displayed temporarily.
+title:  消息提示
+description:  暂时显示简短提示信息。
 component: true
 links:
   doc: https://www.radix-ui.com/docs/primitives/components/toast
@@ -9,25 +9,25 @@ links:
 
 <ComponentPreview name="toast-demo" />
 
-## Installation
+## 安装
 
 <Tabs defaultValue="cli">
 
 <TabsList>
   <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="manual">手动</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
 <Steps>
 
-<Step>Run the following command:</Step>
+<Step>运行以下命令：</Step>
 
 ```bash
 npx shadcn-ui@latest add toast
 ```
 
-<Step>Add the Toaster component</Step>
+<Step>添加 Toaster 组件</Step>
 
 ```tsx title="app/layout.tsx" {1,9}
 import { Toaster } from "@/components/ui/toaster"
@@ -53,13 +53,13 @@ export default function RootLayout({ children }) {
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>安装以下依赖：</Step>
 
 ```bash
 npm install @radix-ui/react-toast
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>将以下代码复制并粘贴到你的项目中。</Step>
 
 `toast.tsx`
 
@@ -73,9 +73,9 @@ npm install @radix-ui/react-toast
 
 <ComponentSource name="toast" fileName="use-toast" />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>更新导入路径以匹配你的项目设置。</Step>
 
-<Step>Add the Toaster component</Step>
+<Step>添加 Toaster 组件</Step>
 
 ```tsx title="app/layout.tsx" {1,9}
 import { Toaster } from "@/components/ui/toaster"
@@ -99,9 +99,9 @@ export default function RootLayout({ children }) {
 
 </Tabs>
 
-## Usage
+## 使用
 
-The `useToast` hook returns a `toast` function that you can use to display a toast.
+`useToast` hook 返回一个 `toast` 函数，你可以使用它来显示一个 toast。
 
 ```tsx
 import { useToast } from "@/components/ui/use-toast"
@@ -128,26 +128,26 @@ export const ToastDemo = () => {
 
 <Callout>
 
-To display multiple toasts at the same time, you can update the `TOAST_LIMIT` in `use-toast.tsx`.
+要同时显示多个 toast，你可以更新 `use-toast.tsx` 中的 `TOAST_LIMIT`。
 
 </Callout>
 
-## Examples
+## 示例
 
-### Simple
+### 简单
 
 <ComponentPreview name="toast-simple" />
 
-### With title
+### 带标题
 
 <ComponentPreview name="toast-with-title" />
 
-### With Action
+### 带操作
 
 <ComponentPreview name="toast-with-action" />
 
-### Destructive
+### 破坏性
 
-Use `toast({ variant: "destructive" })` to display a destructive toast.
+使用 `toast({ variant: "destructive" })` 显示一个破坏性的 toast。
 
 <ComponentPreview name="toast-destructive" />

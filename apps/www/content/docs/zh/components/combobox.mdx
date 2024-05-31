@@ -1,18 +1,16 @@
 ---
-title: Combobox
-description: Autocomplete input and command palette with a list of suggestions.
+title:  Combobox
+description:  Autocomplete input and command palette with a list of suggestions.
 component: true
 ---
 
-<ComponentPreview name="combobox-demo" />
+## 安装
 
-## Installation
+组合 `<Popover />` 和 `<Command />` 组件创建下拉列表。
 
-The Combobox is built using a composition of the `<Popover />` and the `<Command />` components.
+参阅 [Popover](/docs/components/popover#installation) 和 [Command](/docs/components/command#installation) 组件的安装说明。
 
-See installation instructions for the [Popover](/docs/components/popover#installation) and the [Command](/docs/components/command#installation) components.
-
-## Usage
+## 用法
 
 ```tsx
 "use client"
@@ -73,14 +71,14 @@ export function ComboboxDemo() {
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select framework..."}
+            : "选择框架..."}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[200px] p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." />
-          <CommandEmpty>No framework found.</CommandEmpty>
+          <CommandInput placeholder="搜索框架..." />
+          <CommandEmpty>未找到框架。</CommandEmpty>
           <CommandGroup>
             {frameworks.map((framework) => (
               <CommandItem
@@ -108,26 +106,26 @@ export function ComboboxDemo() {
 }
 ```
 
-## Examples
+## 示例
 
-### Combobox
+### 下拉列表
 
 <ComponentPreview name="combobox-demo" />
 
-### Popover
+### 弹出框
 
 <ComponentPreview name="combobox-popover" />
 
-### Dropdown menu
+### 下拉菜单
 
 <ComponentPreview name="combobox-dropdown-menu" />
 
-### Responsive
+### 响应式
 
-You can create a responsive combobox by using the `<Popover />` on desktop and the `<Drawer />` components on mobile.
+可以使用桌面上的 `<Popover />` 和移动设备上的 `<Drawer />` 组件来创建响应式下拉列表。
 
 <ComponentPreview name="combobox-responsive" />
 
-### Form
+### 表单
 
 <ComponentPreview name="combobox-form" />

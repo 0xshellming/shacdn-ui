@@ -1,45 +1,45 @@
 ---
 title: Laravel
-description: Install and configure Laravel with Inertia
+description: 使用 Inertia 安装并配置 Laravel
 ---
 
-<Steps>
+## 步骤
 
-### Create project
+### 创建项目
 
-Start by creating a new Laravel project with Inertia and React using the laravel installer `laravel new my-app`:
+首先使用 laravel 安装程序 `laravel new my-app` 创建一个带有 Inertia 和 React 的新 Laravel 项目：
 
 ```bash
 laravel new my-app --typescript --breeze --stack=react --git --no-interaction
 ```
 
-### Run the CLI
+### 运行 CLI
 
-Run the `shadcn-ui` init command to setup your project:
+运行 `shadcn-ui` init 命令以设置项目：
 
 ```bash
 npx shadcn-ui@latest init
 ```
 
-### Configure components.json
+### 配置 components.json
 
-You will be asked a few questions to configure `components.json`:
+系统将询问几个问题以配置 `components.json`：
 
 ```txt showLineNumbers
-Would you like to use TypeScript (recommended)? no / yes
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your global CSS file? › resources/css/app.css
-Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/Components
-Configure the import alias for utils: › @/lib/utils
-Are you using React Server Components? › no / yes
+你想使用 TypeScript 吗（推荐）？否/是
+你想使用哪种样式？› 默认
+你想使用哪种颜色作为基准色？› 石板
+全局 CSS 文件位于哪里？› resources/css/app.css
+你想使用 CSS 变量来表示颜色吗？› 否/是
+tailwind.config.js 位于哪里？› tailwind.config.js
+为组件配置 import 别名：› @/Components
+为 utils 配置 import 别名：› @/lib/utils
+你正在使用 React Server Components 吗？› 否/是
 ```
 
-### Update tailwind.config.js
+### 更新 tailwind.config.js
 
-The `shadcn-ui` CLI will automatically overwrite your `tailwind.config.js`. Update it to look like this:
+`shadcn-ui` CLI 会自动覆盖你的 `tailwind.config.js`。更新它，使其看起来像这样：
 
 ```js
 import forms from "@tailwindcss/forms"
@@ -128,15 +128,15 @@ export default {
 }
 ```
 
-### That's it
+### 结束
 
-You can now start adding components to your project.
+你现在可以开始向项目中添加组件了。
 
 ```bash
 npx shadcn-ui@latest add button
 ```
 
-The command above will add the `Button` component to your project. You can then import it like this:
+上面的命令会将 `Button` 组件添加到项目中。然后，你可以这样导入它：
 
 ```tsx {1,6} showLineNumbers
 import { Button } from "@/Components/ui/button"
@@ -144,10 +144,9 @@ import { Button } from "@/Components/ui/button"
 export default function Home() {
   return (
     <div>
-      <Button>Click me</Button>
+      <Button>点击我</Button>
     </div>
   )
 }
 ```
 
-</Steps>

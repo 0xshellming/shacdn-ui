@@ -1,21 +1,21 @@
 ---
-title: Alert
-description: Displays a callout for user attention.
+title: 警报
+description: 显示醒目的用户提示。
 component: true
 ---
 
 <ComponentPreview
   name="alert-demo"
-  description="An alert with an icon, title and description. The title says 'Heads up!' and the description is 'You can add components to your app using the cli.'."
+  description="带图标、标题和描述的警报。标题是“注意！”，描述是“你可以使用 cli 向你的应用程序中添加组件。”。"
 />
 
-## Installation
+## 安装
 
 <Tabs defaultValue="cli">
 
 <TabsList>
   <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="manual">手动</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
@@ -29,11 +29,11 @@ npx shadcn-ui@latest add alert
 
 <Steps>
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>将以下代码复制粘贴到你的项目中。</Step>
 
 <ComponentSource name="alert" />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>更新导入路径以匹配你的项目设置。</Step>
 
 </Steps>
 
@@ -41,7 +41,7 @@ npx shadcn-ui@latest add alert
 
 </Tabs>
 
-## Usage
+## 用法
 
 ```tsx
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -50,25 +50,25 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 ```tsx
 <Alert>
   <Terminal className="h-4 w-4" />
-  <AlertTitle>Heads up!</AlertTitle>
+  <AlertTitle>注意！</AlertTitle>
   <AlertDescription>
-    You can add components and dependencies to your app using the cli.
+    你可以使用 cli 向你的应用程序中添加组件和依赖项。
   </AlertDescription>
 </Alert>
 ```
 
-## Examples
+## 示例
 
-### Default
+### 默认
 
 <ComponentPreview
   name="alert-demo"
-  description="An alert with an icon, title and description. The title says 'Heads up!' and the description is 'You can add components to your app using the cli.'."
+  description="带图标、标题和描述的警报。标题是“注意！”，描述是“你可以使用 cli 向你的应用程序中添加组件。”。"
 />
 
-### Destructive
+### 销毁
 
 <ComponentPreview
   name="alert-destructive"
-  description="An alert with a destructive variant. The title says 'Delete this item?' and the description is 'This action cannot be undone.'."
+  description="带销毁变体的警报。标题是“删除此项？”，描述是“此操作不可撤销。”。"
 />

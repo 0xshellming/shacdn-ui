@@ -1,6 +1,6 @@
 ---
-title: Popover
-description: Displays rich content in a portal, triggered by a button.
+title: 浮层
+description: 显示在弹出框中的丰富内容，可以通过按钮触发。
 component: true
 links:
   doc: https://www.radix-ui.com/docs/primitives/components/popover
@@ -9,16 +9,16 @@ links:
 
 <ComponentPreview
   name="popover-demo"
-  description="A popover component with a form."
+  description="一个带有表单的浮层组件。"
 />
 
-## Installation
+## 安装
 
 <Tabs defaultValue="cli">
 
 <TabsList>
   <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="manual">手动</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
@@ -32,17 +32,17 @@ npx shadcn-ui@latest add popover
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>安装以下依赖项：</Step>
 
 ```bash
 npm install @radix-ui/react-popover
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>将以下代码复制并粘贴到你的项目中。</Step>
 
 <ComponentSource name="popover" />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>更新导入路径以匹配你的项目设置。</Step>
 
 </Steps>
 
@@ -50,7 +50,7 @@ npm install @radix-ui/react-popover
 
 </Tabs>
 
-## Usage
+## 使用
 
 ```tsx
 import {
@@ -62,7 +62,7 @@ import {
 
 ```tsx
 <Popover>
-  <PopoverTrigger>Open</PopoverTrigger>
-  <PopoverContent>Place content for the popover here.</PopoverContent>
+  <PopoverTrigger>打开</PopoverTrigger>
+  <PopoverContent>在此处放置浮层的内容。</PopoverContent>
 </Popover>
 ```

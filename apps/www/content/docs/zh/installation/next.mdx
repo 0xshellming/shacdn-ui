@@ -1,43 +1,43 @@
 ---
 title: Next.js
-description: Install and configure Next.js.
+description: 安装和配置 Next.js。
 ---
 
-<Steps>
+## 步骤
 
-### Create project
+### 创建项目
 
-Start by creating a new Next.js project using `create-next-app`:
+首先使用 `create-next-app` 创建一个新的 Next.js 项目：
 
 ```bash
 npx create-next-app@latest my-app --typescript --tailwind --eslint
 ```
 
-### Run the CLI
+### 运行 CLI
 
-Run the `shadcn-ui` init command to setup your project:
+运行 `shadcn-ui` init 命令来设置你的项目：
 
 ```bash
 npx shadcn-ui@latest init
 ```
 
-### Configure components.json
+### 配置 components.json
 
-You will be asked a few questions to configure `components.json`:
+系统将询问一些问题来配置 `components.json`：
 
 ```txt showLineNumbers
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Do you want to use CSS variables for colors? › no / yes
+希望使用哪种样式？ › 默认
+希望哪种颜色作为基础色？ › 石板色
+是否希望使用 CSS 变量表示颜色？ › 否 / 是
 ```
 
-### Fonts
+### 字体
 
-I use [Inter](https://rsms.me/inter/) as the default font. Inter is not required. You can replace it with any other font.
+我使用 [Inter](https://rsms.me/inter/) 作为默认字体。Inter 不是必需的。你可以用任何其他字体替换它。
 
-Here's how I configure Inter for Next.js:
+以下是关于如何在 Next.js 中配置 Inter 的方法：
 
-**1. Import the font in the root layout:**
+**1. 在根布局中导入字体：**
 
 ```js showLineNumbers title=app/layout.tsx {2,5-8,16-17}
 import "@/styles/globals.css"
@@ -67,7 +67,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 }
 ```
 
-**2. Configure `theme.extend.fontFamily` in `tailwind.config.js`**
+**2. 在 `tailwind.config.js` 中配置 `theme.extend.fontFamily`**
 
 ```js showLineNumbers title=tailwind.config.js {9-11}
 const { fontFamily } = require("tailwindcss/defaultTheme")
@@ -86,9 +86,9 @@ module.exports = {
 }
 ```
 
-### App structure
+### 应用结构
 
-Here's how I structure my Next.js apps. You can use this as a reference:
+以下是我结构化 Next.js 应用的方式。你可以参考这个：
 
 ```txt {6-10,14-15}
 .
@@ -115,20 +115,20 @@ Here's how I structure my Next.js apps. You can use this as a reference:
 └── tsconfig.json
 ```
 
-- I place the UI components in the `components/ui` folder.
-- The rest of the components such as `<PageHeader />` and `<MainNav />` are placed in the `components` folder.
-- The `lib` folder contains all the utility functions. I have a `utils.ts` where I define the `cn` helper.
-- The `styles` folder contains the global CSS.
+- 我将 UI 组件放在 `components/ui` 文件夹中。
+- 其余组件，例如 `<PageHeader />` 和 `<MainNav />`，都放在 `components` 文件夹中。
+- `lib` 文件夹包含所有实用函数。我有一个 `utils.ts`，在其中定义 `cn` 帮助器。
+- `styles` 文件夹包含全局 CSS。
 
-### That's it
+### 就是这些
 
-You can now start adding components to your project.
+你现在可以开始向你的项目中添加组件了。
 
 ```bash
 npx shadcn-ui@latest add button
 ```
 
-The command above will add the `Button` component to your project. You can then import it like this:
+上面的命令会将 `Button` 组件添加到你的项目中。然后你可以这样导入它：
 
 ```tsx {1,6} showLineNumbers
 import { Button } from "@/components/ui/button"
@@ -136,10 +136,9 @@ import { Button } from "@/components/ui/button"
 export default function Home() {
   return (
     <div>
-      <Button>Click me</Button>
+      <Button>点击我</Button>
     </div>
   )
 }
 ```
 
-</Steps>

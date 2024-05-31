@@ -1,6 +1,6 @@
 ---
-title: Dialog
-description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+title: 对话框
+description: 一个覆盖在主窗口或另一个对话框窗口上的窗口，将底层内容呈现为惰性。
 featured: true
 component: true
 links:
@@ -10,16 +10,16 @@ links:
 
 <ComponentPreview
   name="dialog-demo"
-  description="A dialog for editing profile details."
+  description="编辑个人资料详细信息的对话框。"
 />
 
-## Installation
+## 安装
 
 <Tabs defaultValue="cli">
 
 <TabsList>
-  <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="cli">命令行界面</TabsTrigger>
+  <TabsTrigger value="manual">手动</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
@@ -33,17 +33,17 @@ npx shadcn-ui@latest add dialog
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>安装以下依赖项：</Step>
 
 ```bash
 npm install @radix-ui/react-dialog
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>将以下代码复制并粘贴到你的项目中。</Step>
 
 <ComponentSource name="dialog" />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>更新导入路径以匹配你的项目设置。</Step>
 
 </Steps>
 
@@ -51,7 +51,7 @@ npm install @radix-ui/react-dialog
 
 </Tabs>
 
-## Usage
+## 使用
 
 ```tsx
 import {
@@ -66,54 +66,51 @@ import {
 
 ```tsx
 <Dialog>
-  <DialogTrigger>Open</DialogTrigger>
+  <DialogTrigger>打开</DialogTrigger>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogTitle>你绝对确定吗？</DialogTitle>
       <DialogDescription>
-        This action cannot be undone. This will permanently delete your account
-        and remove your data from our servers.
+        此操作无法撤销。这会永久删除你的帐户，并将你的数据从我们的服务器中移除。
       </DialogDescription>
     </DialogHeader>
   </DialogContent>
 </Dialog>
 ```
 
-## Examples
+## 示例
 
-### Custom close button
+### 自定关闭按钮
 
 <ComponentPreview name="dialog-close-button" />
 
-## Notes
+## 附注
 
-To activate the `Dialog` component from within a `Context Menu` or `Dropdown Menu`, you must encase the `Context Menu` or
-`Dropdown Menu` component in the `Dialog` component. For more information, refer to the linked issue [here](https://github.com/radix-ui/primitives/issues/1836).
+要在“右键菜单”或“下拉菜单”中激活“对话框”组件，你必须将“右键菜单”或“下拉菜单”组件封装在“对话框”组件中。有关更多信息，请参阅此处链接的问题[here](https://github.com/radix-ui/primitives/issues/1836)。
 
 ```tsx {14-25}
 <Dialog>
   <ContextMenu>
-    <ContextMenuTrigger>Right click</ContextMenuTrigger>
+    <ContextMenuTrigger>右键单击</ContextMenuTrigger>
     <ContextMenuContent>
-      <ContextMenuItem>Open</ContextMenuItem>
-      <ContextMenuItem>Download</ContextMenuItem>
+      <ContextMenuItem>打开</ContextMenuItem>
+      <ContextMenuItem>下载</ContextMenuItem>
       <DialogTrigger asChild>
         <ContextMenuItem>
-          <span>Delete</span>
+          <span>删除</span>
         </ContextMenuItem>
       </DialogTrigger>
     </ContextMenuContent>
   </ContextMenu>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogTitle>你绝对确定吗？</DialogTitle>
       <DialogDescription>
-        This action cannot be undone. Are you sure you want to permanently
-        delete this file from our servers?
+        此操作无法撤销。你确定要从此服务器永久删除此文件吗？
       </DialogDescription>
     </DialogHeader>
     <DialogFooter>
-      <Button type="submit">Confirm</Button>
+      <Button type="submit">确定</Button>
     </DialogFooter>
   </DialogContent>
 </Dialog>

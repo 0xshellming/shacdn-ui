@@ -1,68 +1,68 @@
 ---
 title: Astro
-description: Install and configure Astro.
+description: 安装和配置 Astro。
 ---
 
-<Steps>
+## 步骤
 
-### Create project
+### 创建项目
 
-Start by creating a new Astro project:
+首先，创建一个新的 Astro 项目：
 
 ```bash
 npm create astro@latest
 ```
 
-### Configure your Astro project
+### 配置 Astro 项目
 
-You will be asked a few questions to configure your project:
+你将需要回答一些问题来配置你的项目：
 
 ```txt showLineNumbers
-- Where should we create your new project?
+- 你的新项目应该在哪里创建？
 ./your-app-name
-- How would you like to start your new project?
-Choose a starter template (or Empty)
-- Install dependencies?
-Yes
-- Do you plan to write TypeScript?
-Yes
-- How strict should TypeScript be?
-Strict
-- Initialize a new git repository? (optional)
-Yes/No
+- 你希望如何启动你的新项目？
+选择一个入门模板（或空）
+- 安装依赖项？
+是
+- 你打算编写 TypeScript 吗？
+是
+- TypeScript 应该有多严格？
+严格
+- 初始化新的 git 存储库？（可选）
+是/否
 ```
 
-### Add React to your project
+### 将 React 添加到你的项目
 
-Install React using the Astro CLI:
+使用 Astro CLI 安装 React：
 
 ```bash
 npx astro add react
 ```
 
-<Callout className="mt-4">
+<标注 className="mt-4">
 
-Answer `Yes` to all the question prompted by the CLI when installing React.
+当使用 CLI 安装 React 时，回答所有问题 “是”。
 
-</Callout>
+</标注>
 
-### Add Tailwind CSS to your project
+### 将 Tailwind CSS 添加到你的项目
 
-Install Tailwind CSS using the Astro CLI:
+使用 Astro CLI 安装 Tailwind CSS：
 
 ```bash
 npx astro add tailwind
 ```
 
-<Callout className="mt-4">
+<标注 className="mt-4">
 
-Answer `Yes` to all the question prompted by the CLI when installing Tailwind CSS.
+当使用 CLI 安装 Tailwind CSS 时，回答所有问题 “是”。
 
-</Callout>
+</标注>
 
-### Edit tsconfig.json file
+### 编辑 tsconfig.json 文件
 
-Add the following code to the `tsconfig.json` file to resolve paths:
+将以下代码添加到 `tsconfig.json` 文件以解析路径：
 
 ```ts {4-9} showLineNumbers
 {
@@ -79,33 +79,33 @@ Add the following code to the `tsconfig.json` file to resolve paths:
 }
 ```
 
-### Run the CLI
+### 运行 CLI
 
-Run the `shadcn-ui` init command to setup your project:
+运行 `shadcn-ui` 初始化命令来设置你的项目：
 
 ```bash
 npx shadcn-ui@latest init
 ```
 
-### Configure components.json
+### 配置 components.json
 
-You will be asked a few questions to configure `components.json`:
+你将需要回答一些问题来配置 `components.json`：
 
 ```txt showLineNumbers
-Would you like to use TypeScript (recommended)? no / yes
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › ./src/styles/globals.css
-Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.mjs
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
-Are you using React Server Components? › no
+你想使用 TypeScript 吗（推荐）？否 / 是
+你想使用哪种样式？ › 默认
+你想使用哪种颜色作为基础颜色？ › 石板灰
+你的全局 CSS 文件在哪里？ › › ./src/styles/globals.css
+你想使用 CSS 变量作为颜色吗？ › 否 / 是
+你的 tailwind.config.js 在哪里？ › tailwind.config.mjs
+配置组件的导入别名： › @/components
+配置工具的导入别名： › @/lib/utils
+你正在使用 React 服务器组件吗？ › 否
 ```
 
-### Import the globals.css file
+### 导入 globals.css 文件
 
-Import the `globals.css` file in the `src/pages/index.astro` file:
+在 `src/pages/index.astro` 文件中导入 `globals.css` 文件：
 
 ```ts {2} showLineNumbers
 ---
@@ -113,9 +113,9 @@ import '@/styles/globals.css'
 ---
 ```
 
-### Update astro tailwind config
+### 更新 Astro tailwind 配置
 
-To prevent serving the Tailwind base styles twice, we need to tell Astro not to apply the base styles, since we already include them in our own `globals.css` file. To do this, set the `applyBaseStyles` config option for the tailwind plugin in `astro.config.mjs` to `false`.
+为了防止两次提供 Tailwind 基础样式，我们需要告诉 Astro 不要应用基础样式，因为我们已经将其包含在自己的 `globals.css` 文件中。为此，请将 `astro.config.mjs` 中 tailwind 插件的 `applyBaseStyles` 配置选项设置为 `false`。
 
 ```ts {3-5} showLineNumbers
 export default defineConfig({
@@ -127,9 +127,9 @@ export default defineConfig({
 })
 ```
 
-### Update tailwind.config.mjs
+### 更新 tailwind.config.mjs
 
-When running `npx shadcn-ui@latest init`, your tailwind config for content will be overwritten. To fix this, change the `module.exports` to `export default` and the `content` section with the code below to your `tailwind.config.mjs` file:
+在运行 `npx shadcn-ui@latest init` 时，你的 tailwind 内容配置将被覆盖。为了解决此问题，将 `module.exports` 更改为 `export default`，并将 `content` 部分更改为以下代码到你的 `tailwind.config.mjs` 文件中：
 
 ```js {1-4} showLineNumbers
 export default {
@@ -137,15 +137,15 @@ export default {
 }
 ```
 
-### That's it
+### 完成
 
-You can now start adding components to your project.
+你你现在可以开始向你的项目中添加组件。
 
 ```bash
 npx shadcn-ui@latest add button
 ```
 
-The command above will add the `Button` component to your project. You can then import it like this:
+上面的命令会将 `Button` 组件添加到你的项目中。然后，你可以像这样导入它：
 
 ```astro {2,10} showLineNumbers
 ---
@@ -157,9 +157,8 @@ import { Button } from "@/components/ui/button"
 		<title>Astro</title>
 	</head>
 	<body>
-		<Button>Hello World</Button>
+		<Button>你好，世界</Button>
 	</body>
 </html>
 ```
 
-</Steps>

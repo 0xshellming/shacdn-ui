@@ -1,18 +1,18 @@
 ---
-title: Date Picker
-description: A date picker component with range and presets.
+title: 日期选取器
+description: 包含范围和预设值的日期选取器组件。
 component: true
 ---
 
 <ComponentPreview name="date-picker-demo" />
 
-## Installation
+## 安装
 
-The Date Picker is built using a composition of the `<Popover />` and the `<Calendar />` components.
+日期选取器构建于 `<Popover />` 和 `<Calendar />` 组件的组合之上。
 
-See installation instructions for the [Popover](/docs/components/popover#installation) and the [Calendar](/docs/components/calendar#installation) components.
+参阅 [弹出层](/docs/components/popover#安装) 和 [日历](/docs/components/calendar#安装) 组件的安装说明。
 
-## Usage
+## 使用
 
 ```tsx
 "use client"
@@ -44,7 +44,7 @@ export function DatePickerDemo() {
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
-          {date ? format(date, "PPP") : <span>Pick a date</span>}
+          {date ? format(date, "PPP") : <span>选择日期</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
@@ -60,22 +60,22 @@ export function DatePickerDemo() {
 }
 ```
 
-See the [React DayPicker](https://react-day-picker.js.org) documentation for more information.
+有关更多信息，请参阅 [React DayPicker](https://react-day-picker.js.org) 文档。
 
-## Examples
+## 示例
 
-### Date Picker
+### 日期选取器
 
 <ComponentPreview name="date-picker-demo" />
 
-### Date Range Picker
+### 日期范围选取器
 
 <ComponentPreview name="date-picker-with-range" />
 
-### With Presets
+### 带预设值
 
 <ComponentPreview name="date-picker-with-presets" />
 
-### Form
+### 表单
 
 <ComponentPreview name="date-picker-form" />

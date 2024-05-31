@@ -1,41 +1,41 @@
 ---
 title: Gatsby
-description: Install and configure Gatsby.
+description: 安装并配置 Gatsby。
 ---
 
 <Steps>
 
-### Create project
+### 创建项目
 
-Start by creating a new Gatsby project using `create-gatsby`:
+首先使用 `create-gatsby` 创建一个新的 Gatsby 项目：
 
 ```bash
 npm init gatsby
 ```
 
-### Configure your Gatsby project to use TypeScript and Tailwind CSS
+### 配置 Gatsby 项目，以使用 TypeScript 和 Tailwind CSS
 
-You will be asked a few questions to configure your project:
+系统会要求您回答一些问题来配置项目：
 
 ```txt showLineNumbers
-✔ What would you like to call your site?
+✔ 您希望将您的网站称为？
 · your-app-name
-✔ What would you like to name the folder where your site will be created?
+✔ 您希望将您的网站创建于哪个文件夹？
 · your-app-name
-✔ Will you be using JavaScript or TypeScript?
+✔ 您将使用 JavaScript 还是 TypeScript？
 · TypeScript
-✔ Will you be using a CMS?
-· Choose whatever you want
-✔ Would you like to install a styling system?
+✔ 您将使用 CMS 吗？
+· 您可以按自己的喜好选择
+✔ 您想要安装样式系统吗？
 · Tailwind CSS
-✔ Would you like to install additional features with other plugins?
-· Choose whatever you want
-✔ Shall we do this? (Y/n) · Yes
+✔ 您想要安装其他插件提供的附加功能吗？
+· 您可以按自己的喜好选择
+✔ 我们开始吗？ (Y/n) · 是
 ```
 
-### Edit tsconfig.json file
+### 编辑 tsconfig.json 文件
 
-Add the following code to the `tsconfig.json` file to resolve paths:
+将以下代码添加到 `tsconfig.json` 文件，以解析路径：
 
 ```ts {4-9} showLineNumbers
 {
@@ -52,9 +52,9 @@ Add the following code to the `tsconfig.json` file to resolve paths:
 }
 ```
 
-### Create gatsby-node.ts file
+### 创建 gatsby-node.ts 文件
 
-Create a `gatsby-node.ts` file at the root of your project if it doesn’t already exist, and add the code below to the `gatsby-node` file so your app can resolve paths:
+如果项目根目录下尚未存在 `gatsby-node.ts` 文件，请创建此文件，并将以下代码添加到 `gatsby-node` 文件，以便应用程序解析路径：
 
 ```ts
 import * as path from "path"
@@ -71,39 +71,39 @@ export const onCreateWebpackConfig = ({ actions }) => {
 }
 ```
 
-### Run the CLI
+### 运行 CLI
 
-Run the `shadcn-ui` init command to setup your project:
+运行 `shadcn-ui` init 命令，以设置您的项目：
 
 ```bash
 npx shadcn-ui@latest init
 ```
 
-### Configure components.json
+### 配置 components.json
 
-You will be asked a few questions to configure `components.json`:
+系统会要求您回答一些问题来配置 `components.json`：
 
 ```txt showLineNumbers
-Would you like to use TypeScript (recommended)? no / yes
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › ./src/styles/globals.css
-Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
-Are you using React Server Components? › no
+要使用 TypeScript 吗（建议使用）？否 / 是
+要使用哪种样式？› 默认
+要将哪种颜色用作基础色？› 石板
+您的全局 CSS 文件在哪里？› › ./src/styles/globals.css
+您要使用 CSS 变量来表示颜色吗？› 否 / 是
+tailwind.config.js 位于何处？› tailwind.config.js
+配置组件的导入别名：› @/components
+配置工具的导入别名：› @/lib/utils
+您要使用 React 服务器组件吗？› 否
 ```
 
-### That's it
+### 结束
 
-You can now start adding components to your project.
+现在，您可以开始向项目添加组件。
 
 ```bash
 npx shadcn-ui@latest add button
 ```
 
-The command above will add the `Button` component to your project. You can then import it like this:
+上述命令会将 `Button` 组件添加到您的项目。然后，您可以像这样导入它：
 
 ```tsx {1,6} showLineNumbers
 import { Button } from "@/components/ui/button"
@@ -111,7 +111,7 @@ import { Button } from "@/components/ui/button"
 export default function Home() {
   return (
     <div>
-      <Button>Click me</Button>
+      <Button>单击我</Button>
     </div>
   )
 }

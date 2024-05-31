@@ -1,41 +1,41 @@
 ---
-title: Manual Installation
-description: Add dependencies to your project manually.
+title: 手动安装
+description: 手动向项目中添加依赖项。
 ---
 
-<Steps>
+## 步骤
 
-### Add Tailwind CSS
+### 添加 Tailwind CSS
 
-Components are styled using Tailwind CSS. You need to install Tailwind CSS in your project.
+组件是用 Tailwind CSS 进行样式化的。您需要在您的项目中安装 Tailwind CSS。
 
-[Follow the Tailwind CSS installation instructions to get started.](https://tailwindcss.com/docs/installation)
+[请按照 Tailwind CSS 安装说明来开始。](https://tailwindcss.com/docs/installation)
 
-### Add dependencies
+### 添加依赖项
 
-Add the following dependencies to your project:
+向您的项目中添加以下依赖项：
 
 ```bash
 npm install tailwindcss-animate class-variance-authority clsx tailwind-merge
 ```
 
-### Add icon library
+### 添加图标库
 
-If you're using the `default` style, install `lucide-react`:
+如果您正在使用“默认”样式，请安装 `lucide-react`：
 
 ```bash
 npm install lucide-react
 ```
 
-If you're using the `new-york` style, install `@radix-ui/react-icons`:
+如果您正在使用“纽约”样式，请安装 `@radix-ui/react-icons`：
 
 ```bash
 npm install @radix-ui/react-icons
 ```
 
-### Configure path aliases
+### 配置路径别名
 
-I use the `@` alias. This is how I configure it in tsconfig.json:
+我使用 `@` 别名。这是我在 tsconfig.json 中配置它的方式：
 
 ```json {3-6} title="tsconfig.json"
 {
@@ -48,13 +48,13 @@ I use the `@` alias. This is how I configure it in tsconfig.json:
 }
 ```
 
-The `@` alias is a preference. You can use other aliases if you want.
+`@` 别名是一种偏好。如果您愿意，可以使用其他别名。
 
-**If you use a different alias such as ~, you'll need to update import statements when adding components.**
+**如果您使用其他别名（比如 ~），则在添加组件时需要更新导入语句。**
 
-### Configure tailwind.config.js
+### 配置 tailwind.config.js
 
-Here's what my `tailwind.config.js` file looks like:
+以下是我的 `tailwind.config.js` 文件的内容：
 
 ```js title="tailwind.config.js"
 const { fontFamily } = require("tailwindcss/defaultTheme")
@@ -135,9 +135,9 @@ module.exports = {
 }
 ```
 
-### Configure styles
+### 配置样式
 
-Add the following to your styles/globals.css file. You can learn more about using CSS variables for theming in the [theming section](/docs/theming).
+将以下内容添加到您的 styles/globals.css 文件。您可以在[主题设置部分](/docs/theming)中了解有关将 CSS 变量用于主题设置的更多信息。
 
 ```css title="globals.css"
 @tailwind base;
@@ -223,9 +223,9 @@ Add the following to your styles/globals.css file. You can learn more about usin
 }
 ```
 
-### Add a cn helper
+### 添加 cn 助手
 
-I use a `cn` helper to make it easier to conditionally add Tailwind CSS classes. Here's how I define it in `lib/utils.ts`:
+我使用一个 `cn` 助手来更轻松地有条件地添加 Tailwind CSS 类。以下是我在 `lib/utils.ts` 中定义它的方式：
 
 ```ts title="lib/utils.ts"
 import { clsx, type ClassValue } from "clsx"
@@ -236,8 +236,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 ```
 
-### That's it
+### 完成
 
-You can now start adding components to your project.
-
-</Steps>
+现在您可以在项目中开始添加

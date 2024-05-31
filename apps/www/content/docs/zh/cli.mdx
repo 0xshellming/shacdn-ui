@@ -1,48 +1,48 @@
 ---
-title: CLI
-description: 使用CLI向项目添加组件。
+title: 命令行界面
+description: 使用命令行界面为项目添加组件。
 ---
 
-## init
+## 初始化
 
-使用 `init` 命令来初始化新项目的配置和依赖项。
+使用 `init` 命令初始化新项目的配置和依赖项。
 
-`init` 命令会安装依赖项，添加 `cn` 工具，配置 `tailwind.config.js`，以及为项目设置 CSS 变量。
+`init` 命令将安装依赖项，添加 `cn` 工具，配置 `tailwind.config.js`，以及为项目设置 CSS 变量。
 
 ```bash
 npx shadcn-ui@latest init
 ```
 
-您将被要求回答一些问题以配置 `components.json`:
+您将被要求回答一些问题以配置 `components.json`：
 
 ```txt showLineNumbers
-Would you like to use TypeScript (recommended)? no/yes
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › app/globals.css
-Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
-Are you using React Server Components? › no / yes
+您是否希望使用 TypeScript （推荐）？不/是
+您希望使用哪种样式 ？＞默认
+您希望将哪种颜色用作基础颜色？＞石板
+您的全局 CSS 文件在哪里？＞ › app/globals.css
+您是否希望为颜色使用 CSS 变量？＞否 / 是
+您的 tailwind.config.js 在哪里？› tailwind.config.js
+为组件配置 import 别名：› @/components
+为 utils 配置 import 别名：› @/lib/utils
+您是否正在使用 React Server Components？＞否 / 是
 ```
 
 ### 选项
 
 ```txt
-使用方式: shadcn-ui init [options]
+用法：shadcn-ui init [选项]
 
 初始化您的项目并安装依赖项
 
-选项:
+选项：
   -y, --yes        跳过确认提示。（默认：false）
   -c, --cwd <cwd>  工作目录。默认为当前目录。
   -h, --help       显示命令帮助信息
 ```
 
-## add
+## 添加
 
-使用 `add` 命令向项目添加组件和依赖项。
+使用 `add` 命令为项目添加组件和依赖项。
 
 ```bash
 npx shadcn-ui@latest add [component]
@@ -54,29 +54,29 @@ npx shadcn-ui@latest add [component]
 您想添加哪些组件？› 选择空格选中。A 切换全部。
 回车提交。
 
-◯  accordion
-◯  alert
-◯  alert-dialog
-◯  aspect-ratio
-◯  avatar
-◯  badge
-◯  button
-◯  calendar
-◯  card
-◯  checkbox
+◯  手风琴
+◯  弹窗
+◯  弹窗对话框
+◯  宽高比
+◯  头像
+◯  徽章
+◯  按钮
+◯  日历
+◯  卡片
+◯  复选框
 ```
 
 ### 选项
 
 ```txt
-使用方式: shadcn-ui add [options] [components...]
+用法：shadcn-ui add [选项] [components...]
 
 向项目添加组件
 
-参数:
+参数：
   components         要添加的组件
 
-选项:
+选项：
   -y, --yes          跳过确认提示。（默认：false）
   -o, --overwrite    覆盖现有文件。（默认：false）
   -c, --cwd <cwd>    工作目录。默认为当前目录。
@@ -86,7 +86,7 @@ npx shadcn-ui@latest add [component]
 
 ## diff（实验性功能）
 
-您可以使用 diff 命令来检查与注册表的更新。
+您可以使用 diff 命令检查与注册表的更新。
 
 运行以下命令以获取可用更新的组件列表：
 
@@ -96,11 +96,11 @@ npx shadcn-ui diff
 
 ```txt
 以下组件有可用更新：
-- alert
+- 弹窗
   - /path/to/my-app/components/ui/alert.tsx
-- button
+- 按钮
   - /path/to/my-app/components/ui/button.tsx
-- toast
+- 吐司
   - /path/to/my-app/components/ui/use-toast.ts
   - /path/to/my-app/components/ui/toaster.tsx
 ```
@@ -121,14 +121,14 @@ const alertVariants = cva(
 ### 选项
 
 ```txt
-使用方式: shadcn-ui diff [options] [component]
+用法：shadcn-ui diff [选项] [component]
 
 检查是否有更新的组件
 
-参数:
+参数：
   component        组件名称
 
-选项:
+选项：
   -y, --yes        跳过确认提示。（默认：false）
   -c, --cwd <cwd>  工作目录。默认为当前目录。
   -h, --help       显示命令帮助信息

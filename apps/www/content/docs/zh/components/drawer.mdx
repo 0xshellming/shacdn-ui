@@ -1,6 +1,6 @@
 ---
-title: Drawer
-description: A drawer component for React.
+title: 抽屉
+description: React 的抽屉组件。
 component: true
 links:
   doc: https://github.com/emilkowalski/vaul
@@ -8,17 +8,17 @@ links:
 
 <ComponentPreview name="drawer-demo" />
 
-## About
+## 关于
 
-Drawer is built on top of [Vaul](https://github.com/emilkowalski/vaul) by [emilkowalski\_](https://twitter.com/emilkowalski_).
+抽屉建立在 [emilkowalski\_](https://twitter.com/emilkowalski_) 的 [Vaul](https://github.com/emilkowalski/vaul) 的基础之上。
 
-## Installation
+## 安装
 
 <Tabs defaultValue="cli">
 
 <TabsList>
   <TabsTrigger value="cli">CLI</TabsTrigger>
-  <TabsTrigger value="manual">Manual</TabsTrigger>
+  <TabsTrigger value="manual">手动</TabsTrigger>
 </TabsList>
 <TabsContent value="cli">
 
@@ -32,17 +32,17 @@ npx shadcn-ui@latest add drawer
 
 <Steps>
 
-<Step>Install the following dependencies:</Step>
+<Step>安装以下依赖项：</Step>
 
 ```bash
 npm install vaul
 ```
 
-<Step>Copy and paste the following code into your project.</Step>
+<Step>将以下代码复制粘贴到项目中。</Step>
 
 <ComponentSource name="drawer" />
 
-<Step>Update the import paths to match your project setup.</Step>
+<Step>更新导入路径以匹配项目的设置。</Step>
 
 </Steps>
 
@@ -50,7 +50,7 @@ npm install vaul
 
 </Tabs>
 
-## Usage
+## 使用
 
 ```tsx showLineNumbers
 import {
@@ -67,26 +67,26 @@ import {
 
 ```tsx showLineNumbers
 <Drawer>
-  <DrawerTrigger>Open</DrawerTrigger>
+  <DrawerTrigger>打开</DrawerTrigger>
   <DrawerContent>
     <DrawerHeader>
-      <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-      <DrawerDescription>This action cannot be undone.</DrawerDescription>
+      <DrawerTitle>您确定吗？</DrawerTitle>
+      <DrawerDescription>此操作不可撤消。</DrawerDescription>
     </DrawerHeader>
     <DrawerFooter>
-      <Button>Submit</Button>
+      <Button>提交</Button>
       <DrawerClose>
-        <Button variant="outline">Cancel</Button>
+        <Button variant="outline">取消</Button>
       </DrawerClose>
     </DrawerFooter>
   </DrawerContent>
 </Drawer>
 ```
 
-## Examples
+## 示例
 
-### Responsive Dialog
+### 自适应对话框
 
-You can combine the `Dialog` and `Drawer` components to create a responsive dialog. This renders a `Dialog` component on desktop and a `Drawer` on mobile.
+可以将 `Dialog` 和 `Drawer` 组件结合使用来创建自适应对话框。这会在桌面上呈现一个 `Dialog` 组件，在移动设备上呈现一个 `Drawer` 组件。
 
 <ComponentPreview name="drawer-dialog" />

@@ -1,6 +1,6 @@
 ---
-title: Button 按钮
-description: 显示一个按钮或类似按钮的组件。
+title: 按钮（Button）
+description: 展示按钮或者类似按钮的组件。
 featured: true
 component: true
 ---
@@ -27,17 +27,17 @@ npx shadcn-ui@latest add button
 
 <Steps>
 
-<Step>安装以下依赖项：</Step>
+<Step>安装下列依赖：</Step>
 
 ```bash
 npm install @radix-ui/react-slot
 ```
 
-<Step>将以下代码复制并粘贴到你的项目中。</Step>
+<Step>将下列代码复制并粘贴到你的项目中。</Step>
 
 <ComponentSource name="button" />
 
-<Step>更新导入路径以匹配你的项目设置。</Step>
+<Step>根据你的项目设置，更新导入路径。</Step>
 
 </Steps>
 
@@ -45,7 +45,7 @@ npm install @radix-ui/react-slot
 
 </Tabs>
 
-## 使用
+## 用法
 
 ```tsx
 import { Button } from "@/components/ui/button"
@@ -57,7 +57,7 @@ import { Button } from "@/components/ui/button"
 
 ## 链接
 
-你可以使用`buttonVariants`帮助器创建一个看起来像按钮的链接。
+你可以使用`buttonVariants`帮助器创建看起来像按钮的链接。
 
 ```tsx
 import { buttonVariants } from "@/components/ui/button"
@@ -75,17 +75,17 @@ import { buttonVariants } from "@/components/ui/button"
 </Button>
 ```
 
-## 示例
+## 范例
 
-###主要的
+### 主要
 
 <ComponentPreview name="button-demo" description="一个主要的按钮" />
 
-### 次要的
+### 次要
 
 <ComponentPreview name="button-secondary" description="一个次要的按钮" />
 
-### 破坏性的
+### 破坏性
 
 <ComponentPreview
   name="button-destructive"
@@ -117,20 +117,20 @@ import { buttonVariants } from "@/components/ui/button"
 
 <ComponentPreview name="button-icon" description="一个图标按钮" />
 
-### 带有图标的
+### 带有图标
 
-<ComponentPreview name="button-with-icon" description="一个带有图标的按钮" />
+<ComponentPreview name="button-with-icon" description="一个带图标的按钮" />
 
 ### 加载中
 
 <ComponentPreview
   name="button-loading"
-  description="一个带有加载状态的按钮。"
+  description="一个带加载状态的按钮。"
 />
 
 ### 作为子元素
 
 <ComponentPreview
   name="button-as-child"
-  description="一个包裹自定义链接组件的按钮"
+  description="包裹自定义链接组件的按钮"
 />
