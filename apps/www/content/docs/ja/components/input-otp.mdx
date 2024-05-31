@@ -1,38 +1,38 @@
 ---
-title: OTP 入力
-description: アクセシビリティ対応型ワンタイムパスワード コンポーネントで、コピー貼り付け機能も備えています。
+title:  Input OTP
+description:  Accessible one-time password component with copy paste functionality.
 component: true
 links:
   doc: https://input-otp.rodz.dev
 ---
 
-<ComponentPreview name="input-otp-demo" description="6 桁の OTP 入力" />
+<ComponentPreview name="input-otp-demo" description="An 6 digits input OTP." />
 
-## 概要
+## About
 
-Input OTP は [@guilherme_rodz](https://twitter.com/guilherme_rodz) による [input-otp](https://github.com/guilhermerodz/input-otp) をベースに構築しました。
+Input OTP is built on top of [input-otp](https://github.com/guilhermerodz/input-otp) by [@guilherme_rodz](https://twitter.com/guilherme_rodz).
 
-## インストール
+## Installation
 
-<タブ defaultValue="cli">
+<Tabs defaultValue="cli">
 
-<タブリスト>
-  <タブトリガー value="cli">CLI</タブトリガー>
-  <タブトリガー value="manual">手動</タブトリガー>
-</タブリスト>
-<タブコンテンツ value="cli">
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
 
-<ステップ>
+<Steps>
 
-<ステップ>次のコマンドを実行します:</ステップ>
+<Step>Run the following command:</Step>
 
 ```bash
 npx shadcn-ui@latest add input-otp
 ```
 
-<ステップ>`tailwind.config.js` を更新します</ステップ>
+<Step>Update `tailwind.config.js`</Step>
 
-次のアニメーションを `tailwind.config.js` ファイルに追加します:
+Add the following animations to your `tailwind.config.js` file:
 
 ```js showLineNumbers title="tailwind.config.js" {6-9,12}
 /** @type {import('tailwindcss').Config} */
@@ -53,29 +53,29 @@ module.exports = {
 }
 ```
 
-</ステップ>
+</Steps>
 
-</タブコンテンツ>
+</TabsContent>
 
-<タブコンテンツ value="manual">
+<TabsContent value="manual">
 
-<ステップ>
+<Steps>
 
-<ステップ>次の依存関係をインストールします:</ステップ>
+<Step>Install the following dependencies:</Step>
 
 ```bash
 npm install input-otp
 ```
 
-<ステップ>次のコードをプロジェクトにコピーして貼り付けます。</ステップ>
+<Step>Copy and paste the following code into your project.</Step>
 
-<コンポーネントソース name="input-otp" />
+<ComponentSource name="input-otp" />
 
-<ステップ>インポートパスをプロジェクトの設定に合わせて更新します。</ステップ>
+<Step>Update the import paths to match your project setup.</Step>
 
-<ステップ>`tailwind.config.js` を更新します</ステップ>
+<Step>Update `tailwind.config.js`</Step>
 
-次のアニメーションを `tailwind.config.js` ファイルに追加します:
+Add the following animations to your `tailwind.config.js` file:
 
 ```js showLineNumbers title="tailwind.config.js" {6-9,12}
 /** @type {import('tailwindcss').Config} */
@@ -96,13 +96,13 @@ module.exports = {
 }
 ```
 
-</ステップ>
+</Steps>
 
-</タブコンテンツ>
+</TabsContent>
 
-</タブ>
+</Tabs>
 
-## 使用
+## Usage
 
 ```tsx
 import {
@@ -129,15 +129,15 @@ import {
 </InputOTP>
 ```
 
-## 例
+## Examples
 
-### パターン
+### Pattern
 
-`pattern` プロップを使用して、OTP 入力用のカスタム パターンを定義します。
+Use the `pattern` prop to define a custom pattern for the OTP input.
 
-<コンポーネントプレビュー
+<ComponentPreview
   name="input-otp-pattern"
-  description="英数字パターンを持つ OTP 入力"
+  description="An input OTP with alphanumeric pattern."
 />
 
 ```tsx showLineNumbers {1,7}
@@ -156,13 +156,13 @@ import { REGEXP_ONLY_DIGITS_AND_CHARS } from "input-otp"
 </InputOTP>
 ```
 
-### セパレータ
+### Separator
 
-`<InputOTPSeparator />` コンポーネントを使用して、入力グループの間にセパレータを追加できます。
+You can use the `<InputOTPSeparator />` component to add a separator between the input groups.
 
-<コンポーネントプレビュー
+<ComponentPreview
   name="input-otp-separator"
-  description="カスタムセパレータを備えた OTP 入力"
+  description="An input OTP with custom separator."
 />
 
 ```tsx showLineNumbers {4,15}
@@ -188,35 +188,36 @@ import {
 </InputOTP>
 ```
 
-### 制御された状態
+### Controlled
 
-`value` プロップと `onChange` プロップを使用して、入力値を制御できます。
+You can use the `value` and `onChange` props to control the input value.
 
-<コンポーネントプレビュー name="input-otp-controlled" />
+<ComponentPreview name="input-otp-controlled" />
 
-### フォーム
+### Form
 
-<コンポーネントプレビュー name="input-otp-form" />
+<ComponentPreview name="input-otp-form" />
 
-## 変更履歴
+## Changelog
 
-### 2024-03-19 コポジション
+### 2024-03-19 Composition
 
-いくつかの更新を行い、render プロップパターンの代わりにコンポジションを使用しました。`render` プロップを使用している場合は、コンポジションパターンを好む場合にコードを更新する方法を次に示します。
+We've made some updates and replaced the render props pattern with composition. Here's how to update your code if you prefer the composition pattern.
 
-<コールアウト className="mt-6">
-  **注:** `render` プロップを使用している場合は、コードを更新する必要はありません。引き続きサポートされています。
-</コールアウト>
+<Callout className="mt-6">
+  **Note:** You are not required to update your code if you are using the
+  `render` prop. It is still supported.
+</Callout>
 
-<ステップ>
+<Steps>
 
-<ステップ>`input-otp` の最新バージョンに更新します。</ステップ>
+<Step>Update to the latest version of `input-otp`.</Step>
 
 ```bash
 npm install input-otp@latest
 ```
 
-<ステップ>`input-otp.tsx` を更新します</ステップ>
+<Step>Update `input-otp.tsx`</Step>
 
 ```diff showLineNumbers title="input-otp.tsx" {2,8-11}
 - import { OTPInput, SlotProps } from "input-otp"
@@ -232,7 +233,7 @@ npm install input-otp@latest
 +   const { char, hasFakeCaret, isActive } = inputOTPContext.slots[index]
 ```
 
-<ステップ>次に、コード内の `render` プロップを置き換えます。</ステップ>
+<Step>Then replace the `render` prop in your code.</Step>
 
 ```diff showLineNumbers {2-12}
 <InputOTP maxLength={6}>
@@ -250,11 +251,11 @@ npm install input-otp@latest
 </InputOTP>
 ```
 
-</ステップ>
+</Steps>
 
-### 2024-03-19 無効
+### 2024-03-19 Disabled
 
-入力に無効状態を追加するには、次のように `<InputOTP />` を更新します:
+To add a disabled state to the input, update `<InputOTP />` as follows:
 
 ```tsx showLineNumbers title="input-otp.tsx" {4,7-11}
 const InputOTP = React.forwardRef<
