@@ -29,8 +29,11 @@ const encoding = "utf8"
 
 // const files = fs.readdirSync(docsPath)
 
-const zhPath = "./content/docs/zh/"
+const docsPath = "./content/docs"
+// const langs = ["Japanese"]
+let currentLang = 'jp'
 const readFiles = (path: string) => {
+  const zhPath = `${docsPath}/zh`
   const filePath = resolve(zhPath, path)
   const files = fs.readdirSync(filePath)
   files.forEach((name) => {
@@ -39,9 +42,10 @@ const readFiles = (path: string) => {
       readFiles(fileName)
       return
     }
-    const value = db.get(fileName)
+    const langFileName = `${currentLang}/${fileName}`
+    const value = db.get(langFileName)
     if (value === undefined) {
-      db.set(fileName, false)
+      db.set(langFileName, false)
     }
   })
 }
@@ -50,11 +54,12 @@ readFiles(".")
 
 console.log(db.data)
 
+
 const translateContent = (content: string) =>
   run("@cf/meta/llama-2-7b-chat-fp16", {
     model: "gemini-1.5-flash-latest",
     messages: [
-      { role: "system", content: mdxTranslatePrompts },
+      { role: "system", content: mdxTranslatePrompts('Japanese') },
       {
         role: "user",
         content: content,
@@ -66,7 +71,9 @@ async function bootstrap() {
   for (const key in db.data) {
     if (!db.data[key]) {
       console.log("[start]", key)
-      const filePath = resolve(zhPath, key)
+      const filePath = resolve(docsPath, key)
+      console.log("🚀 ~ bootstrap ~ filePath:", filePath)
+      fs.ensureFileSync(filePath)
       const content = fs.readFileSync(filePath, encoding)
       const ret = await translateContent(content)
       fs.writeFileSync(filePath, ret.choices[0].message.content)

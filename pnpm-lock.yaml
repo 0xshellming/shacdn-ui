@@ -113,9 +113,6 @@ importers:
       '@faker-js/faker':
         specifier: ^8.2.0
         version: 8.2.0
-      '@google/generative-ai':
-        specifier: ^0.12.0
-        version: 0.12.0
       '@hookform/resolvers':
         specifier: ^3.1.0
         version: 3.1.0(react-hook-form@7.44.2(react@18.2.0))
@@ -381,9 +378,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.0(ts-node@10.9.2(@types/node@17.0.45)(typescript@5.4.2))
-      ts-node:
-        specifier: ^10.9.2
-        version: 10.9.2(@types/node@17.0.45)(typescript@5.4.2)
       tsx:
         specifier: ^4.1.4
         version: 4.7.0
@@ -1330,10 +1324,6 @@ packages:
 
   '@formatjs/intl-localematcher@0.5.4':
     resolution: {integrity: sha512-zTwEpWOzZ2CiKcB93BLngUX59hQkuZjT2+SAQEscSm52peDW/getsawMcWF1rGRpMCX6D7nSJA3CzJ8gn13N/g==}
-
-  '@google/generative-ai@0.12.0':
-    resolution: {integrity: sha512-krWjurjEUHSFhCX4lGHMOhbnpBfYZGU31mpHpPBQwcfWm0T+/+wxC4UCAJfkxxc3/HvGJVG8r4AqrffaeDHDlA==}
-    engines: {node: '>=18.0.0'}
 
   '@grpc/grpc-js@1.8.14':
     resolution: {integrity: sha512-w84maJ6CKl5aApCMzFll0hxtFNT6or9WwMslobKaqWUEf1K+zhlL43bSQhFreyYWIWR+Z0xnVFC1KtLm4ZpM/A==}
@@ -7694,8 +7684,6 @@ snapshots:
     dependencies:
       tslib: 2.6.0
 
-  '@google/generative-ai@0.12.0': {}
-
   '@grpc/grpc-js@1.8.14':
     dependencies:
       '@grpc/proto-loader': 0.7.7
@@ -13584,6 +13572,7 @@ snapshots:
       typescript: 5.4.2
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
+    optional: true
 
   ts-node@10.9.2(@types/node@20.11.27)(typescript@4.9.5):
     dependencies:
