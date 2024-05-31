@@ -1,0 +1,68 @@
+---
+title:  タブ
+description:  タブパネルと呼ばれるコンテンツの階層化されたセクションのセット。一度に1つずつ表示されます。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/tabs
+  API: https://www.radix-ui.com/docs/primitives/components/tabs#api-reference
+---
+
+<ComponentPreview
+  name="tabs-demo"
+  description="2つのフォームを持つタブコンポーネント。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add tabs
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-tabs
+```
+
+<Step>以下のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="tabs" />
+
+<Step>プロジェクトのセットアップに合わせて、インポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+```
+
+```tsx
+<Tabs defaultValue="account" className="w-[400px]">
+  <TabsList>
+    <TabsTrigger value="account">アカウント</TabsTrigger>
+    <TabsTrigger value="password">パスワード</TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">ここでアカウントの変更を加えます。</TabsContent>
+  <TabsContent value="password">ここでパスワードを変更します。</TabsContent>
+</Tabs>
+```

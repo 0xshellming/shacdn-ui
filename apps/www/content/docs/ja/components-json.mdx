@@ -1,0 +1,186 @@
+---
+title:  components.json
+description: プロジェクトの設定を行います。
+---
+
+`components.json` ファイルには、プロジェクトの設定が保存されています。
+
+これを使用して、プロジェクトの設定方法と、プロジェクト用にカスタマイズされたコンポーネントを生成する方法を把握します。
+
+<Callout className="mt-6">
+  注: `components.json` ファイルはオプションであり、**プロジェクトにコンポーネントを追加するために CLI を使用する**場合にのみ必要です。コピーアンドペースト方式を使用する場合、このファイルは必要ありません。
+</Callout>
+
+次のコマンドを実行すると、プロジェクトに `components.json` ファイルを作成できます。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+詳細については、<Link href="/docs/cli">CLI セクション</Link> を参照してください。
+
+## $schema
+
+`components.json` の JSON スキーマは [こちら](https://ui.shadcn.com/schema.json) で確認できます。
+
+```json title="components.json"
+{
+  "$schema": "https://ui.shadcn.com/schema.json"
+}
+```
+
+## スタイル
+
+コンポーネントのスタイル。**これは初期化後に変更できません。**
+
+```json title="components.json"
+{
+  "style": "default" | "new-york"
+}
+```
+
+<ComponentPreview name="card-with-form" />
+
+## tailwind
+
+プロジェクトで Tailwind CSS がどのように設定されているかを CLI が理解するための設定です。
+
+Tailwind CSS の設定方法については、<Link href="/docs/installation">インストール セクション</Link> を参照してください。
+
+### tailwind.config
+
+`tailwind.config.js` ファイルのパス。
+
+```json title="components.json"
+{
+  "tailwind": {
+    "config": "tailwind.config.js" | "tailwind.config.ts"
+  }
+}
+```
+
+### tailwind.css
+
+プロジェクトに Tailwind CSS をインポートする CSS ファイルへのパス。
+
+```json title="components.json"
+{
+  "tailwind": {
+    "css": "styles/global.css"
+  }
+}
+```
+
+### tailwind.baseColor
+
+コンポーネントの既定のカラールートパレットを生成するために使用します。**これは初期化後に変更できません。**
+
+```json title="components.json"
+{
+  "tailwind": {
+    "baseColor": "gray" | "neutral" | "slate" | "stone" | "zinc"
+  }
+}
+```
+
+### tailwind.cssVariables
+
+テーマ設定に CSS 変数を使用するか Tailwind CSS ユーティリティクラスを使用するかを選択できます。
+
+ユーティリティクラスでテーマ設定を行うには、`tailwind.cssVariables` を `false` に設定します。CSS 変数を使用するには、`tailwind.cssVariables` を `true` に設定します。
+
+```json title="components.json"
+{
+  "tailwind": {
+    "cssVariables": `true` | `false`
+  }
+}
+```
+
+詳細については、<Link href="/docs/theming">テーマ設定ドキュメント</Link> を参照してください。
+
+**これは初期化後に変更できません。**CSS 変数とユーティリティクラスを切り替えるには、コンポーネントを削除して再インストールする必要があります。
+
+### tailwind.prefix
+
+Tailwind CSS ユーティリティクラスに使用するプレフィックス。このプレフィックスを使用してコンポーネントが追加されます。
+
+```json title="components.json"
+{
+  "tailwind": {
+    "prefix": "tw-"
+  }
+}
+```
+
+## rsc
+
+React サーバーコンポーネントのサポートを有効にするかどうか。
+
+`true` に設定すると、CLI はクライアントコンポーネントに `use client` ディレクティブを自動的に追加します。
+
+```json title="components.json"
+{
+  "rsc": `true` | `false`
+}
+```
+
+## tsx
+
+TypeScript または JavaScript のコンポーネントを選択します。
+
+このオプションを `false` に設定すると、コンポーネントは `.jsx` ファイル拡張子を使用して JavaScript として追加できます。
+
+```json title="components.json"
+{
+  "tsx": `true` | `false`
+}
+```
+
+## 別名
+
+CLI はこれらの値と `tsconfig.json` または `jsconfig.json` ファイルの `paths` 設定を使用して、生成されたコンポーネントを正しい場所に配置します。
+
+パスエイリアスは `tsconfig.json` または `jsconfig.json` ファイルで設定する必要があります。
+
+<Callout className="mt-6">
+  **重要:** `src` ディレクトリを使用している場合は、`tsconfig.json` または `jsconfig.json` ファイルの `paths` に含まれていることを確認してください。
+</Callout>
+
+### 別名.utils
+
+ユーティリティ関数用のインポートエイリアス。
+
+```json title="components.json"
+{
+  "aliases": {
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+### 別名.components
+
+コンポーネント用のインポートエイリアス。
+
+```json title="components.json"
+{
+  "aliases": {
+    "components": "@/components"
+  }
+}
+```
+
+### 別名.ui
+
+`ui` コンポーネント用のインポートエイリアス。
+
+CLI は `aliases.ui` 値を使用して `ui` コンポーネントの配置場所を決定します。`ui` コンポーネントのインストールディレクトリをカスタマイズする場合は、この設定を使用します。
+
+```json title="components.json"
+{
+  "aliases": {
+    "ui": "@/app/ui"
+  }
+}
+```

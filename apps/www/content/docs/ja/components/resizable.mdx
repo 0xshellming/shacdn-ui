@@ -1,0 +1,129 @@
+---
+title:  可变尺度
+description:  支持键盘操作，无障碍可变尺度面板组和布局。
+component: true
+links:
+  doc: https://github.com/bvaughn/react-resizable-panels
+  api: https://github.com/bvaughn/react-resizable-panels/tree/main/packages/react-resizable-panels
+---
+
+<ComponentPreview
+  name="resizable-demo"
+  description="一群可调整水平和垂直面板。"
+/>
+
+## 关于
+
+`Resizable` 组件基于 [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) (作者：[bvaughn](https://github.com/bvaughn))。
+
+## 安装
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手动</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add resizable
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>安装以下依赖项：</Step>
+
+```bash
+npm install react-resizable-panels
+```
+
+<Step>将以下代码复制并粘贴到项目中。</Step>
+
+<ComponentSource name="resizable" />
+
+<Step>更新导入路径以匹配你的项目设置。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 用法
+
+```tsx
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+```
+
+```tsx
+<ResizablePanelGroup direction="horizontal">
+  <ResizablePanel>一个</ResizablePanel>
+  <ResizableHandle />
+  <ResizablePanel>二</ResizablePanel>
+</ResizablePanelGroup>
+```
+
+## 实例
+
+### 垂直
+
+使用 `direction` 道具设置可调整面板方向。
+
+<ComponentPreview
+  name="resizable-vertical"
+  description="一群可调整垂直面板。"
+/>
+
+```tsx showLineNumbers {9}
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+
+export default function Example() {
+  return (
+    <ResizablePanelGroup direction="vertical">
+      <ResizablePanel>一个</ResizablePanel>
+      <ResizableHandle />
+      <ResizablePanel>二</ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```
+
+### 处理
+
+可以通过在 `ResizableHandle` 组件上使用 `withHandle` 道具设置或隐藏该处理。
+
+<ComponentPreview
+  name="resizable-handle"
+  description="一群带处理的可调整模块。"
+/>
+
+```tsx showLineNumbers {11}
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable"
+
+export default function Example() {
+  return (
+    <ResizablePanelGroup direction="horizontal">
+      <ResizablePanel>一个</ResizablePanel>
+      <ResizableHandle withHandle />
+      <ResizablePanel>二</ResizablePanel>
+    </ResizablePanelGroup>
+  )
+}
+```

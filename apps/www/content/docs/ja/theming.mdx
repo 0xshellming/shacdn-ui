@@ -1,0 +1,190 @@
+---
+title: テーマ化
+description: テーマ化には、CSS 変数か Tailwind CSS ユーティリティクラスを使用できます。
+---
+
+テーマ化には、CSS 変数か Tailwind CSS ユーティリティクラスのどちらかを選択できます。
+
+## ユーティリティクラス
+
+```tsx /bg-zinc-950/ /text-zinc-50/ /dark:bg-white/ /dark:text-zinc-950/
+<div className="bg-zinc-950 dark:bg-white" />
+```
+
+テーマ化にユーティリティクラスを使用するには、``components.json`` ファイルで ``tailwind.cssVariables`` を ``false`` に設定します。
+
+```json {8} title="components.json"
+{
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": false
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+## CSS 変数
+
+```tsx /bg-background/ /text-foreground/
+<div className="bg-background text-foreground" />
+```
+
+テーマ化に CSS 変数を使用するには、``components.json`` ファイルで ``tailwind.cssVariables`` を ``true`` に設定します。
+
+```json {8} title="components.json"
+{
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "app/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+### 規約
+
+色については、シンプルな``background`` と ``foreground`` の規約を使用しています。``background`` 変数はコンポーネントの背景色に使用され、``foreground`` 変数はテキストの色に使用されます。
+
+<Callout className="mt-4">
+
+``background`` サフィックスは、変数がコンポーネントの背景色に使用されるときに省略されます。
+
+</Callout>
+
+次の CSS 変数を設定します。
+
+```css
+--primary: 222.2 47.4% 11.2%;
+--primary-foreground: 210 40% 98%;
+```
+
+次のコンポーネントの ``background`` 色は ``hsl(var(--primary))`` に、``foreground`` 色は ``hsl(var(--primary-foreground))`` になります。
+
+```tsx
+<div className="bg-primary text-primary-foreground">Hello</div>
+```
+
+<Callout>
+
+**CSS 変数はカラースペース関数なしで定義する必要があります。** 詳細については [Tailwind CSS ドキュメント](https://tailwindcss.com/docs/customizing-colors#using-css-variables) を参照してください。
+
+</Callout>
+
+### 変数のリスト
+
+次に、カスタマイズできる変数のリストを示します。
+
+<Steps>
+
+```css title="<body /> などのデフォルトの背景色"
+--background: 0 0% 100%;
+--foreground: 222.2 47.4% 11.2%;
+```
+
+```css title="<TabsList />, <Skeleton />, <Switch /> などのミュートされた背景"
+--muted: 210 40% 96.1%;
+--muted-foreground: 215.4 16.3% 46.9%;
+```
+
+```css title="<Card /> の背景色"
+--card: 0 0% 100%;
+--card-foreground: 222.2 47.4% 11.2%;
+```
+
+```css title="<DropdownMenu />, <HoverCard />, <Popover /> などのポップオーバーの背景色"
+--popover: 0 0% 100%;
+--popover-foreground: 222.2 47.4% 11.2%;
+```
+
+```css title="デフォルトのボーダーの色"
+--border: 214.3 31.8% 91.4%;
+```
+
+```css title="<Input />, <Select />, <Textarea /> などの入力のボーダーの色"
+--input: 214.3 31.8% 91.4%;
+```
+
+```css title="<Button /> のプライマリの色"
+--primary: 222.2 47.4% 11.2%;
+--primary-foreground: 210 40% 98%;
+```
+
+```css title="<Button /> のセカンダリの色"
+--secondary: 210 40% 96.1%;
+--secondary-foreground: 222.2 47.4% 11.2%;
+```
+
+```css title="<DropdownMenuItem>, <SelectItem> などのホバーエフェクトのアクセントに使用されます"
+--accent: 210 40% 96.1%;
+--accent-foreground: 222.2 47.4% 11.2%;
+```
+
+```css title="<Button variant="destructive">" などの破壊的なアクションに使用されます"
+--destructive: 0 100% 50%;
+--destructive-foreground: 210 40% 98%;
+```
+
+```css title="フォーカスリングに使用されます"
+--ring: 215 20.2% 65.1%;
+```
+
+```css title="カード、入力、ボタンのボーダーの半径"
+--radius: 0.5rem;
+```
+
+</Steps>
+
+### 新しい色の追加
+
+新しい色を追加するには、CSS ファイルと ``tailwind.config.js`` ファイルに追加する必要があります。
+
+```css title="app/globals.css"
+:root {
+  --warning: 38 92% 50%;
+  --warning-foreground: 48 96% 89%;
+}
+
+.dark {
+  --warning: 48 96% 89%;
+  --warning-foreground: 38 92% 50%;
+}
+```
+
+```js {5-6} title="tailwind.config.js"
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        warning: "hsl(var(--warning))",
+        "warning-foreground": "hsl(var(--warning-foreground))",
+      },
+    },
+  },
+}
+```
+
+コンポーネントで ``warning`` ユーティリティクラスを使用できるようになりました。
+
+```tsx /bg-warning/ /text-warning-foreground/
+<div className="bg-warning text-warning-foreground" />
+```
+
+### その他のカラーフォーマット
+
+テーマ化には [HSL カラー](https://www.smashingmagazine.com/2021/07/hsl-colors-css/) をお勧めしますが、必要に応じて他のカラーフォーマットを使用することもできます。
+
+``rgb``、``rgba``、または ``hsl`` カラーを使用する方法の詳細については、[Tailwind CSS ドキュメント](https://tailwindcss.com/docs/customizing-colors#using-css-variables) を参照してください。

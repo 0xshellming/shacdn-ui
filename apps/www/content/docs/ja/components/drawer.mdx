@@ -1,0 +1,92 @@
+---
+title:  ドロワー
+description:  React 用ドローワーコンポーネント。
+component: true
+links:
+  doc: https://github.com/emilkowalski/vaul
+---
+
+<ComponentPreview name="drawer-demo" />
+
+## 概要
+
+ドロワーは、[emilkowalski\_](https://twitter.com/emilkowalski_)による [Vaul](https://github.com/emilkowalski/vaul) を基盤に構築されています。
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add drawer
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします:</Step>
+
+```bash
+npm install vaul
+```
+
+<Step>以下のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="drawer" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx showLineNumbers
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+```
+
+```tsx showLineNumbers
+<Drawer>
+  <DrawerTrigger>開く</DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle>本当に大丈夫ですか？</DrawerTitle>
+      <DrawerDescription>この操作は取り消せません。</DrawerDescription>
+    </DrawerHeader>
+    <DrawerFooter>
+      <Button>送信</Button>
+      <DrawerClose>
+        <Button variant="outline">キャンセル</Button>
+      </DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+```
+
+## 例
+
+### レスポンシブダイアログ
+
+`Dialog` と `Drawer` コンポーネントを組み合わせて、レスポンシブなダイアログを作成できます。これは、デスクトップでは `Dialog` コンポーネントを、モバイルでは `Drawer` をレンダリングします。
+
+<ComponentPreview name="drawer-dialog" />

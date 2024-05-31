@@ -1,0 +1,136 @@
+---
+title: ボタン
+description: ボタン、またはボタンのように見えるコンポーネントを表示します。
+featured: true
+component: true
+---
+
+<ComponentPreview name="button-demo" description="ボタン" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-slot
+```
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます.</Step>
+
+<ComponentSource name="button" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import { Button } from "@/components/ui/button"
+```
+
+```tsx
+<Button variant="outline">ボタン</Button>
+```
+
+## リンク
+
+`buttonVariants` ヘルパーを使用して、ボタンのように見えるリンクを作成できます。
+
+```tsx
+import { buttonVariants } from "@/components/ui/button"
+```
+
+```tsx
+<Link className={buttonVariants({ variant: "outline" })}>クリックしてください</Link>
+```
+
+または、`asChild` パラメータを設定して、リンクコンポーネントをネストできます。
+
+```tsx
+<Button asChild>
+  <Link href="/login">ログイン</Link>
+</Button>
+```
+
+## 例
+
+### プライマリ
+
+<ComponentPreview name="button-demo" description="プライマリボタン" />
+
+### セカンダリ
+
+<ComponentPreview name="button-secondary" description="セカンダリボタン" />
+
+### 破棄
+
+<ComponentPreview
+  name="button-destructive"
+  description="破棄ボタン"
+/>
+
+### アウトライン
+
+<ComponentPreview
+  name="button-outline"
+  description="アウトラインの亜種を使用するボタン"
+/>
+
+### ゴースト
+
+<ComponentPreview
+  name="button-ghost"
+  description="ゴーストの亜種を使用するボタン"
+/>
+
+### リンク
+
+<ComponentPreview
+  name="button-link"
+  description="リンクの亜種を使用するボタン"
+/>
+
+### アイコン
+
+<ComponentPreview name="button-icon" description="アイコンボタン" />
+
+### アイコン付き
+
+<ComponentPreview name="button-with-icon" description="アイコン付きのボタン" />
+
+### ロード中
+
+<ComponentPreview
+  name="button-loading"
+  description="ロード中の状態のボタン"
+/>
+
+### 子として
+
+<ComponentPreview
+  name="button-as-child"
+  description="カスタムリンクコンポーネントをラップするボタン"
+/>

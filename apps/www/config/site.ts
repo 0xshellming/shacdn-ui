@@ -24,9 +24,23 @@ export const cnSiteConfig = {
   keywords: ["shadcn ui 中文"],
 }
 
+export const jaSiteConfig = {
+  name: "shadcn/ui 日本語サイト",
+  url: "https://www.shadcn.net/ja",
+  ogImage: "https://www.shadcn.net/og.jpg",
+  description:
+    "美しいコンポーネントを設計して、あなたのアプリケーションにコピーして貼り付けることができます。 アクセス可能でカスタマイズ可能でオープンソースです",
+  links: {
+    twitter: "https://twitter.com/shadcn",
+    github: "https://github.com/shadcn-ui/ui",
+  },
+  keywords: ["shadcn ui 日本語"],
+}
+
 export const siteConfigs: { [key: string]: typeof siteConfig } = {
   en: siteConfig,
   zh: cnSiteConfig,
+  ja: jaSiteConfig,
 }
 
 export type SiteConfig = typeof siteConfig

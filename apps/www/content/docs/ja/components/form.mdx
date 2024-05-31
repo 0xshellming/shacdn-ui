@@ -1,0 +1,255 @@
+---
+title:  React Hook Form
+description:  React Hook FormとZodを使用したフォームの構築.
+links:
+  doc: https://react-hook-form.com
+---
+
+フォームは扱いが難しいものです。それはウェブアプリケーションにおいて最も一般的に作成するものの1つですが、最も複雑なものの一つでもあります。
+
+適切に設計されたHTMLフォームは:
+
+- 構造化が良く、セマンティックに正しい。
+- 使いやすくナビゲートしやすい（キーボード）。
+- ARIA属性と適切なラベルでアクセシビリティがある。
+- クライアント側とサーバー側のバリデーションをサポートしている。
+- スタイルが良く、アプリケーションの他の部分と一貫している。
+
+このガイドでは[`react-hook-form`](https://react-hook-form.com/)と[`zod`](https://zod.dev)を使用してフォームを構築します。 Radix UIコンポーネントを使用して、アクセシビリティのあるフォームを構成するために `<FormField>` コンポーネントを使用する予定です。
+
+## 機能
+
+`<Form />` コンポーネントは`react-hook-form`ライブラリのラッパーです。いくつかのことを提供します。
+
+- フォームを構築するためのコンポーネントを構成します。
+- 制御されたフォームフィールドを構築するための `<FormField />` コンポーネント。
+- `zod`を使用したフォームのバリデーション。
+- アクセシビリティとエラーメッセージを処理します。
+- `React.useId()`を使用して一意のIDを生成します。
+- 状態に基づいて、フォームフィールドに正しい`aria`属性を適用します。
+- すべてのRadix UIコンポーネントで動作するように構築されました。
+- 独自のスキーマリブラリを使用します。`zod`を使用しますが、好きなものを使用できます。
+- **マークアップとスタイルを完全に制御できます。**
+
+## 構造
+
+```tsx
+<Form>
+  <FormField
+    control={...}
+    name="..."
+    render={() => (
+      <FormItem>
+        <FormLabel />
+        <FormControl>
+          { /* フォームフィールド */}
+        </FormControl>
+        <FormDescription />
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+</Form>
+```
+
+## 例
+
+```tsx
+const form = useForm()
+
+<FormField
+  control={form.control}
+  name="username"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>ユーザーネーム</FormLabel>
+      <FormControl>
+        <Input placeholder="shadcn" {...field} />
+      </FormControl>
+      <FormDescription>これはあなたの公開表示名です。</FormDescription>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+```
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+<Steps>
+
+### コマンド
+
+```bash
+npx shadcn-ui@latest add form
+```
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-label @radix-ui/react-slot react-hook-form @hookform/resolvers zod
+```
+
+<Step>以下のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="form" />
+
+<Step>プロジェクトのセットアップに合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用
+
+<Steps>
+
+### フォームスキーマの作成
+
+Zodスキーマを使用してフォームの形状を定義します。 Zodの使用の詳細については、[Zodのドキュメント](https://zod.dev)をご覧ください。
+
+```tsx showLineNumbers {3,5-7}
+"use client"
+
+import { z } from "zod"
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+})
+```
+
+### フォームの定義
+
+`react-hook-form`の`useForm`フックを使用して、フォームを作成します。
+
+```tsx showLineNumbers {3-4,14-20,22-27}
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "ユーザーネームは少なくとも2文字にしてください。",
+  }),
+})
+
+export function ProfileForm() {
+  // 1. フォームを定義します。
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+    },
+  })
+
+  // 2. サブミットハンドラーを定義します。
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // フォームの値で何かを行います。
+    // ✅ これはタイプセーフで検証済みになります。
+    console.log(values)
+  }
+}
+```
+
+`FormField`は制御されたコンポーネントを使用しているため、フィールドにデフォルト値を指定する必要があります。制御されたコンポーネントの詳細については、[React Hook Formドキュメント](https://react-hook-form.com/docs/usecontroller)を参照してください。
+
+### フォームを構築する
+
+これで`<Form />`コンポーネントを使用してフォームを構築できます。
+
+```tsx showLineNumbers {7-17,28-50}
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "ユーザーネームは少なくとも2文字にしてください。",
+  }),
+})
+
+export function ProfileForm() {
+  // ...
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>ユーザーネーム</FormLabel>
+              <FormControl>
+                <Input placeholder="shadcn" {...field} />
+              </FormControl>
+              <FormDescription>
+                これはあなたの公開表示名です。
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">送信</Button>
+      </form>
+    </Form>
+  )
+}
+```
+
+### 完了
+
+これで、クライアント側のバリデーションがタイプセーフで、完全にアクセシビリティのあるフォームができました。
+
+<ComponentPreview
+  name="input-form"
+  className="[&_[role=tablist]]:hidden [&>div>div:first-child]:hidden"
+/>
+
+</Steps>
+
+## 例
+
+他のコンポーネントと一緒に`<Form />`コンポーネントを使用する方法に関する詳細については、次のリンクを参照してください。
+
+- [チェックボックス](/docs/components/checkbox#form)
+- [日付ピッカー](/docs/components/date-picker#form)
+- [入力](/docs/components/input#form)
+- [ラジオグループ](/docs/components/radio-group#form)
+- [セレクト](/docs/components/select#form)
+- [スイッチ](/docs/components/switch#form)
+- [テキストエリア](/docs/components/textarea#form)
+- [コンボボックス](/docs/components/combobox#form)

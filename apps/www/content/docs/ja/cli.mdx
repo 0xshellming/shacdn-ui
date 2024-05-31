@@ -1,0 +1,134 @@
+---
+title:  CLI
+description:  CLI を使用してプロジェクトにコンポーネントを追加します。
+---
+
+## init
+
+`init` コマンドを使用して、新しいプロジェクトの設定と依存関係を初期化します。
+
+`init` コマンドは依存関係をインストールし、`cn` ユーティリティを追加し、プロジェクトの `tailwind.config.js` と CSS 変数を設定します。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+`components.json` を設定するために、いくつかの質問への回答を求められます。
+
+```txt showLineNumbers
+TypeScript を使用しますか (推奨しますか)? no/yes
+どのスタイルを使用しますか? › デフォルト
+ベースカラーとして使用する色は? › Slate
+グローバル CSS ファイルはどこにありますか? › › app/globals.css
+色の CSS 変数を使用しますか? › no / yes
+tailwind.config.js はどこにありますか? › tailwind.config.js
+コンポーネント用のインポートエイリアスを設定します: › @/components
+ユーティリティ用のインポートエイリアスを設定します: › @/lib/utils
+React Server Components を使用していますか? › no / yes
+```
+
+### オプション
+
+```txt
+使用方法: shadcn-ui init [オプション]
+
+プロジェクトを初期化し、依存関係をインストールします。
+
+オプション:
+  -y, --yes        確認プロンプトをスキップ。 (デフォルト: false)
+  -c, --cwd <cwd>  作業ディレクトリ。デフォルトは現在のディレクトリ。
+  -h, --help       コマンドのヘルプを表示します。
+```
+
+## add
+
+`add` コマンドを使用して、コンポーネントと依存関係をプロジェクトに追加します。
+
+```bash
+npx shadcn-ui@latest add [コンポーネント]
+```
+
+選択可能なコンポーネントのリストが表示されます。
+
+```txt
+どのコンポーネントを追加しますか? › スペースを選択。すべての A を切り替えます。 Enter を押して送信します。
+
+◯  accordion
+◯  alert
+◯  alert-dialog
+◯  aspect-ratio
+◯  avatar
+◯  badge
+◯  button
+◯  calendar
+◯  card
+◯  checkbox
+```
+
+### オプション
+
+```txt
+使用方法: shadcn-ui add [オプション] [コンポーネント...]
+
+プロジェクトにコンポーネントを追加します。
+
+引数:
+  コンポーネント         追加するコンポーネント
+
+オプション:
+  -y, --yes          確認プロンプトをスキップ。 (デフォルト: false)
+  -o, --overwrite    既存のファイルを上書きします。 (デフォルト: false)
+  -c, --cwd <cwd>    作業ディレクトリ。デフォルトは現在のディレクトリ。
+  -p, --path <path>  コンポーネントを追加するパス。
+  -h, --help         コマンドのヘルプを表示します。
+```
+
+## diff (実験的)
+
+diff コマンドを使用して、レジストリに対して更新を確認できます。
+
+使用可能な更新があるコンポーネントのリストを取得するには、次のコマンドを実行します。
+
+```bash
+npx shadcn-ui diff
+```
+
+```txt
+以下のコンポーネントに更新があります:
+- alert
+  - /path/to/my-app/components/ui/alert.tsx
+- button
+  - /path/to/my-app/components/ui/button.tsx
+- toast
+  - /path/to/my-app/components/ui/use-toast.ts
+  - /path/to/my-app/components/ui/toaster.tsx
+```
+
+次に、`diff [コンポーネント]` を実行して変更内容を確認します。
+
+```bash
+npx shadcn-ui diff alert
+```
+
+```diff /pl-12/
+const alertVariants = cva(
+- "relative w-full rounded-lg border",
++ "relative w-full pl-12 rounded-lg border"
+)
+```
+
+### オプション
+
+```txt
+使用方法: shadcn-ui diff [オプション] [コンポーネント]
+
+レジストリに対して更新を確認します。
+
+引数:
+  コンポーネント        コンポーネント名
+
+オプション:
+  -y, --yes        確認プロンプトをスキップ。 (デフォルト: false)
+  -c, --cwd <cwd>  作業ディレクトリ。デフォルトは現在のディレクトリ。
+  -h, --help       コマンドのヘルプを表示します。
+```

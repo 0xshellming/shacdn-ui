@@ -1,0 +1,80 @@
+---
+title:  メニューバー
+description:  一般的にデスクトップアプリケーションで使用される視覚的に主張するメニューで、一連のコマンドに簡単にアクセスできます。
+component:  true
+links:
+  doc:  https://www.radix-ui.com/docs/primitives/components/menubar
+  API:  https://www.radix-ui.com/docs/primitives/components/menubar#api-reference
+---
+
+<ComponentPreview name="menubar-demo" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add menubar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-menubar
+```
+
+<Step>次のコードをプロジェクトにコピーアンドペーストします。</Step>
+
+<ComponentSource name="menubar" />
+
+<Step>プロジェクトのセットアップに合わせてインポートパスをアップデートします。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import {
+  Menubar,
+  MenubarContent,
+  MenubarItem,
+  MenubarMenu,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarTrigger,
+} from "@/components/ui/menubar"
+```
+
+```tsx
+<Menubar>
+  <MenubarMenu>
+    <MenubarTrigger>ファイル</MenubarTrigger>
+    <MenubarContent>
+      <MenubarItem>
+        新しいタブ <MenubarShortcut>⌘T</MenubarShortcut>
+      </MenubarItem>
+      <MenubarItem>新しいウィンドウ</MenubarItem>
+      <MenubarSeparator />
+      <MenubarItem>共有</MenubarItem>
+      <MenubarSeparator />
+      <MenubarItem>印刷</MenubarItem>
+    </MenubarContent>
+  </MenubarMenu>
+</Menubar>
+```

@@ -1,0 +1,74 @@
+---
+title:  アラート
+description:  アラートは重要な情報をユーザーに表示するためのコンポーネントです。
+component: true
+---
+
+<ComponentPreview
+  name="alert-demo"
+  description="アイコン、タイトル、説明をもつアラート。タイトルは「ご注目を！」、説明は「CLI を使用してアプリにコンポーネントを追加できます。」です。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add alert
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="alert" />
+
+<Step>プロジェクトの設定に応じて、インポートパスをアップデートします。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+```
+
+```tsx
+<Alert>
+  <Terminal className="h-4 w-4" />
+  <AlertTitle>ご注目を！</AlertTitle>
+  <AlertDescription>
+    CLI を使用してアプリにコンポーネントと依存関係を追加できます。
+  </AlertDescription>
+</Alert>
+```
+
+## 例
+
+### デフォルト
+
+<ComponentPreview
+  name="alert-demo"
+  description="アイコン、タイトル、説明をもつアラート。タイトルは「ご注目を！」、説明は「CLI を使用してアプリにコンポーネントを追加できます。」です。"
+/>
+
+### 破棄
+
+<ComponentPreview
+  name="alert-destructive"
+  description="破棄変種のアラート。タイトルは「このアイテムを削除しますか？」、説明は「このアクションは取り消せません。」です。"
+/>

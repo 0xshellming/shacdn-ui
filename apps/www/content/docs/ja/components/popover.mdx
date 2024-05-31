@@ -1,0 +1,68 @@
+---
+title: ポーバー
+description: ボタンをトリガーにして、ポータルにリッチなコンテンツを表示します。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/popover#api-reference
+  api: https://www.radix-ui.com/docs/primitives/components/popover
+---
+
+<ComponentPreview
+  name="popover-demo"
+  description="フォームを含むポーバーコンポーネントです。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add popover
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-popover
+```
+
+<Step>以下のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="popover" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+```
+
+```tsx
+<Popover>
+  <PopoverTrigger>開く</PopoverTrigger>
+  <PopoverContent>ここにポーバーのコンテンツを配置します。</PopoverContent>
+</Popover>
+```

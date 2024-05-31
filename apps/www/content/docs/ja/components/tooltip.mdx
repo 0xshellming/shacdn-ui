@@ -1,0 +1,70 @@
+---
+title:  ツールチップ
+description:  要素にキーボードのフォーカスが当てられるか、マウスがその要素の上にホバーされると関連する情報を表示するポップアップ。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/tooltip
+  api: https://www.radix-ui.com/docs/primitives/components/tooltip#api-reference
+---
+
+<ComponentPreview name="tooltip-demo" description="ツールチップコンポーネントです。" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add tooltip
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-tooltip
+```
+
+<Step>以下のコードをコピーしてプロジェクトに貼り付けます。</Step>
+
+<ComponentSource name="tooltip" />
+
+<Step>プロジェクトのセットアップに合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+```
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>ホバー</TooltipTrigger>
+    <TooltipContent>
+      <p>ライブラリに追加</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```

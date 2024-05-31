@@ -1,0 +1,71 @@
+---
+title: 折りたたみ可能
+description: パネルを展開/折りたたむ対話型コンポーネント。
+component: true
+featured: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/collapsible
+  api: https://www.radix-ui.com/docs/primitives/components/collapsible#api-reference
+---
+
+<ComponentPreview
+  name="collapsible-demo"
+  description="折りたたみ可能なコンポーネント"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add collapsible
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-collapsible
+```
+
+<Step>次のコードをプロジェクトにコピーアンドペーストします。</Step>
+
+<ComponentSource name="collapsible" />
+
+<Step>インポートパスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+```
+
+```tsx
+<Collapsible>
+  <CollapsibleTrigger>プロジェクトで使用できますか？</CollapsibleTrigger>
+  <CollapsibleContent>
+    はい。個人的および商用プロジェクトで自由に使用できます。アトリビューションは不要です。
+  </CollapsibleContent>
+</Collapsible>
+```

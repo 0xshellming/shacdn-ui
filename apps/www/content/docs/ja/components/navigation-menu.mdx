@@ -1,0 +1,98 @@
+---
+title: ナビゲーションメニュー
+description: Web サイトをナビゲートするためのリンクのコレクション
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/navigation-menu
+  api: https://www.radix-ui.com/docs/primitives/components/navigation-menu#api-reference
+---
+
+<ComponentPreview name="navigation-menu-demo" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add navigation-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-navigation-menu
+```
+
+<Step>以下のコードをコピーしてプロジェクトに貼り付けます。</Step>
+
+<ComponentSource name="navigation-menu" />
+
+<Step>インポートパスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+```
+
+```tsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>アイテム 1</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuLink>リンク</NavigationMenuLink>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+```
+
+## 例
+
+### Link コンポーネント
+
+Next.js の `<Link />` コンポーネントを使用する場合、`navigationMenuTriggerStyle()` を使用してトリガーに正しいスタイルを適用できます。
+
+```tsx
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+```
+
+```tsx {3-5}
+<NavigationMenuItem>
+  <Link href="/docs" legacyBehavior passHref>
+    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+      ドキュメント
+    </NavigationMenuLink>
+  </Link>
+</NavigationMenuItem>
+```
+
+クライアント側のルーティングの処理については、[Radix UI のドキュメント](https://www.radix-ui.com/docs/primitives/components/navigation-menu#with-client-side-routing) も参照してください。

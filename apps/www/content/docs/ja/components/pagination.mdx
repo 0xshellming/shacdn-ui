@@ -1,0 +1,105 @@
+---
+title: ページ分割
+description: ページ内移動、次へ、前のリンクを含むページ分割。
+component: true
+---
+
+<ComponentPreview
+  name="pagination-demo"
+  description="前へ、次のリンクを持つページ分割。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add pagination
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>プロジェクトに以下のコードをコピーして貼り付けます。</Step>
+
+<ComponentSource name="pagination" />
+
+<Step>インポートパスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用
+
+```tsx
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
+```
+
+```tsx
+<Pagination>
+  <PaginationContent>
+    <PaginationItem>
+      <PaginationPrevious href="#" />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationLink href="#">1</PaginationLink>
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationEllipsis />
+    </PaginationItem>
+    <PaginationItem>
+      <PaginationNext href="#" />
+    </PaginationItem>
+  </PaginationContent>
+</Pagination>
+```
+
+### Next.js
+
+デフォルトでは、`<PaginationLink />` コンポーネントは `<a />` タグをレンダリングします。
+
+Next.js の `<Link />` コンポーネントを使用するには、`pagination.tsx` に次の更新を行います。
+
+```diff showLineNumbers /typeof Link/ {1}
++ import Link from "next/link"
+
+- type PaginationLinkProps = ... & React.ComponentProps<"a">
++ type PaginationLinkProps = ... & React.ComponentProps<typeof Link>
+
+const PaginationLink = ({...props }: ) => (
+  <PaginationItem>
+-   <a>
++   <Link>
+      // ...
+-   </a>
++   </Link>
+  </PaginationItem>
+)
+
+```
+
+<Callout className="mt-6">
+
+**注:** これらの更新を自動的に実行できるように、cli を更新しています。
+
+</Callout>

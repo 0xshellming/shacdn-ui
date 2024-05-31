@@ -1,0 +1,86 @@
+---
+title: アラート ダイアログ
+description:  重要なコンテンツでユーザーに警告し、応答を期待するモーダル ダイアログです。
+featured: true
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/alert-dialog
+  api: https://www.radix-ui.com/docs/primitives/components/alert-dialog#api-reference
+---
+
+<ComponentPreview
+  name="alert-dialog-demo"
+  description="キャンセルボタンと続行ボタンのあるアラート ダイアログです。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add alert-dialog
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-alert-dialog
+```
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="alert-dialog" />
+
+<Step>インポート パスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+```
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger>開く</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>本当に削除しますか?</AlertDialogTitle>
+      <AlertDialogDescription>
+        この動作は元に戻せません。アカウントは完全に削除され、データはサーバから削除されます。
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>キャンセル</AlertDialogCancel>
+      <AlertDialogAction>続行</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```

@@ -1,0 +1,58 @@
+---
+title:  スライダー
+description:  指定された範囲からユーザーが値を選択するための入力
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/slider
+  api: https://www.radix-ui.com/docs/primitives/components/slider#api-reference
+---
+
+<ComponentPreview name="slider-demo" description="スライダー コンポーネント" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add slider
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-slider
+```
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="slider" />
+
+<Step>インポートパスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import { Slider } from "@/components/ui/slider"
+```
+
+```tsx
+<Slider defaultValue={[33]} max={100} step={1} />
+```

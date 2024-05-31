@@ -1,0 +1,83 @@
+---
+title:  テーブル
+description:  レスポンシブテーブルコンポーネント。
+component: true
+---
+
+<ComponentPreview name="table-demo" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add table
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>プロジェクトに次のコードをコピーして貼り付けます。</Step>
+
+<ComponentSource name="table" />
+
+<Step>プロジェクトのセットアップに合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+```
+
+```tsx
+<Table>
+  <TableCaption>最近の請求書の一覧です。</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead className="w-[100px]">請求書</TableHead>
+      <TableHead>ステータス</TableHead>
+      <TableHead>方法</TableHead>
+      <TableHead className="text-right">金額</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell className="font-medium">INV001</TableCell>
+      <TableCell>支払い済み</TableCell>
+      <TableCell>クレジットカード</TableCell>
+      <TableCell className="text-right">$250.00</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## データ テーブル
+
+`<Table />` コンポーネントを使用して、より複雑なデータ テーブルを構築できます。[@tanstack/react-table](https://tanstack.com/table/v8) と組み合わせて、ソート、フィルタリング、ページネーション機能を備えたテーブルを作成します。
+
+詳細については、[データ テーブル](/docs/components/data-table) のドキュメントを参照してください。
+
+また、[タスク](/examples/tasks) デモでデータテーブルの例を確認することもできます。

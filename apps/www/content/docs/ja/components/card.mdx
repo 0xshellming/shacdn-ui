@@ -1,0 +1,74 @@
+---
+title:  カード
+description:  ヘッダー、コンテンツ、フッターのあるカードを表示します。
+component: true
+---
+
+<ComponentPreview name="card-with-form" description="フォームのあるカード" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add card
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次のコードをコピーしてプロジェクトに貼り付けます。</Step>
+
+<ComponentSource name="card" />
+
+<Step>プロジェクトセットアップに合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+```
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>カードタイトル</CardTitle>
+    <CardDescription>カードの説明</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>カードコンテンツ</p>
+  </CardContent>
+  <CardFooter>
+    <p>カードフッター</p>
+  </CardFooter>
+</Card>
+```
+
+## 例
+
+<ComponentPreview
+  name="card-demo"
+  description="通知設定を表示するカード。"
+/>

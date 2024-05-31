@@ -1,0 +1,77 @@
+---
+title:  ラジオグループ
+description:  チェック可能なボタンのセットで、ラジオボタンと呼ばれ、一度にチェックできるボタンは 1 つだけです。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/radio-group
+  api: https://www.radix-ui.com/docs/primitives/components/radio-group#api-reference
+---
+
+<ComponentPreview
+  name="radio-group-demo"
+  説明="3 つの項目を含むラジオグループです。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add radio-group
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-radio-group
+```
+
+<Step>以下のコードをプロジェクトにコピーアンドペーストします。</Step>
+
+<ComponentSource name="radio-group" />
+
+<Step>プロジェクトの設定に合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import { Label } from "@/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+```
+
+```tsx
+<RadioGroup defaultValue="option-one">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-one" id="option-one" />
+    <Label htmlFor="option-one">オプション 1</Label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-two" id="option-two" />
+    <Label htmlFor="option-two">オプション 2</Label>
+  </div>
+</RadioGroup>
+```
+
+## 例
+
+### フォーム
+
+<ComponentPreview name="radio-group-form" />

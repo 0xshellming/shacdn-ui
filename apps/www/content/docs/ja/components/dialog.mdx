@@ -1,0 +1,117 @@
+---
+title: ダイアログ
+description: プライマリーウィンドウまたは別のダイアログウィンドウ上にオーバーレイ表示されるウィンドウで、下のコンテンツを非アクティブにします。
+featured: true
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/dialog
+  api: https://www.radix-ui.com/docs/primitives/components/dialog#api-reference
+---
+
+<ComponentPreview
+  name="dialog-demo"
+  description="プロフィール詳細を編集するダイアログ。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add dialog
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-dialog
+```
+
+<Step>次のコードをプロジェクトにコピーアンドペーストします。</Step>
+
+<ComponentSource name="dialog" />
+
+<Step>プロジェクトのセットアップに合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>本当によろしいですか?</DialogTitle>
+      <DialogDescription>
+        このアクションは元に戻すことができません。 アカウントは永久に削除され、データはサーバーから削除されます。
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```
+
+## 例
+
+### カスタム閉じるボタン
+
+<ComponentPreview name="dialog-close-button" />
+
+## 注意
+
+`Context Menu` または `Dropdown Menu` 内から `Dialog` コンポーネントをアクティブにするには、 `Context Menu` または `Dropdown Menu` コンポーネントを `Dialog` コンポーネントで囲む必要があります。詳細は [こちら](https://github.com/radix-ui/primitives/issues/1836) の Issue を参照してください。
+
+```tsx {14-25}
+<Dialog>
+  <ContextMenu>
+    <ContextMenuTrigger>右クリック</ContextMenuTrigger>
+    <ContextMenuContent>
+      <ContextMenuItem>開く</ContextMenuItem>
+      <ContextMenuItem>ダウンロード</ContextMenuItem>
+      <DialogTrigger asChild>
+        <ContextMenuItem>
+          <span>削除</span>
+        </ContextMenuItem>
+      </DialogTrigger>
+    </ContextMenuContent>
+  </ContextMenu>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>本当によろしいですか?</DialogTitle>
+      <DialogDescription>
+        このアクションは元に戻すことができません。このファイルをサーバーから完全に削除することに同意しますか?
+      </DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <Button type="submit">確認</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```

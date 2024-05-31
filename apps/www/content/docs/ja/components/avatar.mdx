@@ -1,0 +1,61 @@
+---
+title:  アバター
+description: ユーザーを表す、フォールバック付きのイメージ要素。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/avatar
+  api: https://www.radix-ui.com/docs/primitives/components/avatar#api-reference
+---
+
+<ComponentPreview name="avatar-demo" description="フォールバック付きのアバター。" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add avatar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールしてください:</Step>
+
+```bash
+npm install @radix-ui/react-avatar
+```
+
+<Step>次のコードをプロジェクトにコピーしてペーストしてください。</Step>
+
+<ComponentSource name="avatar" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新してください。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 用法
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+```
+
+```tsx
+<Avatar>
+  <AvatarImage src="https://github.com/shadcn.png" />
+  <AvatarFallback>CN</AvatarFallback>
+</Avatar>
+```

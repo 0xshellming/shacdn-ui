@@ -1,0 +1,145 @@
+---
+title:  Next.js
+description:  Next.js のインストールと設定.
+---
+
+<Steps>
+
+### プロジェクトの作成
+
+`create-next-app` を使用して新しい Next.js プロジェクトを作成することから始めます。
+
+```bash
+npx create-next-app@latest my-app --typescript --tailwind --eslint
+```
+
+### CLI の実行
+
+`shadcn-ui` init コマンドを実行してプロジェクトをセットアップします。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+### components.json の設定
+
+`components.json` を設定するために、いくつかの 질문が求められます。
+
+```txt showLineNumbers
+Which style would you like to use? › Default
+Which color would you like to use as base color? › Slate
+Do you want to use CSS variables for colors? › no / yes
+```
+
+### フォント
+
+私はデフォルトのフォントとして [Inter](https://rsms.me/inter/) を使用しています。Inter は必須ではありません。他の任意のフォントに置き換えることができます。
+
+私が Next.js に Inter を設定する方法は次のとおりです。
+
+**1. ルートレイアウトにフォントをインポートします:**
+
+```js showLineNumbers title=app/layout.tsx {2,5-8,16-17}
+import "@/styles/globals.css"
+import { Inter as FontSans } from "next/font/google"
+
+import { cn } from "@/lib/utils"
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head />
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        ...
+      </body>
+    </html>
+  )
+}
+```
+
+**2. `tailwind.config.js` で `theme.extend.fontFamily` を設定します**
+
+```js showLineNumbers title=tailwind.config.js {9-11}
+const { fontFamily } = require("tailwindcss/defaultTheme")
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+    },
+  },
+}
+```
+
+### アプリの構造
+
+以下は Next.js アプリの構造です。参考にご利用ください。
+
+```txt {6-10,14-15}
+.
+├── app
+│   ├── layout.tsx
+│   └── page.tsx
+├── components
+│   ├── ui
+│   │   ├── alert-dialog.tsx
+│   │   ├── button.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   └── ...
+│   ├── main-nav.tsx
+│   ├── page-header.tsx
+│   └── ...
+├── lib
+│   └── utils.ts
+├── styles
+│   └── globals.css
+├── next.config.js
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── tsconfig.json
+```
+
+- UI コンポーネントを `components/ui` フォルダに配置します。
+- `PageHeader` や `MainNav` などの残りのコンポーネントは `components` フォルダに配置します。
+- `lib` フォルダには、すべてのユーティリティ関数が含まれます。私は `cn` ヘルパーを定義する `utils.ts` を持っています。
+- `styles` フォルダには、グローバル CSS が含まれています。
+
+### 以上です
+
+コンポーネントをプロジェクトに追加できます。
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+上記のコマンドは `Button` コンポーネントをプロジェクトに追加します。以下のようにインポートできます。
+
+```tsx {1,6} showLineNumbers
+import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}
+```
+
+</Steps>

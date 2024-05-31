@@ -1,0 +1,95 @@
+---
+title: ドロップダウンメニュー
+description: ボタンアクションでトリガーされるメニュー（アクションや機能のセットなど）をユーザに表示します。
+featured: true
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/dropdown-menu
+  api: https://www.radix-ui.com/docs/primitives/components/dropdown-menu#api-reference
+---
+
+<ComponentPreview
+  name="dropdown-menu-demo"
+  description="アイコン、ショートカット、サブメニューアイテムを含むドロップダウンメニュー。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add dropdown-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-dropdown-menu
+```
+
+<Step>以下のコードをプロジェクトにコピーアンドペーストします。</Step>
+
+<ComponentSource name="dropdown-menu" />
+
+<Step>インポートパスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+```
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger>開く</DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>マイアカウント</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>プロフィール</DropdownMenuItem>
+    <DropdownMenuItem>請求</DropdownMenuItem>
+    <DropdownMenuItem>チーム</DropdownMenuItem>
+    <DropdownMenuItem>サブスクリプション</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## 例
+
+### チェックボックス
+
+<ComponentPreview
+  name="dropdown-menu-checkboxes"
+  description="チェックボックス付きのドロップダウンメニュー。"
+/>
+
+### ラジオグループ
+
+<ComponentPreview
+  name="dropdown-menu-radio-group"
+  description="ラジオアイテム付きのドロップダウンメニュー。"
+/>

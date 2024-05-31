@@ -1,0 +1,160 @@
+---
+title:  Remix
+description:  リミックスアプリにダークモードを追加する.
+---
+
+## ダークモード
+
+<手順>
+
+### tailwind.css ファイルを変更する
+
+tailwind.css ファイルに `:root[class~="dark"]` を追加する.これにより、html 要素に `dark` クラスを使用してダークモードスタイルを適用できます.
+
+```css {2} title="app/tailwind.css"
+.dark,
+:root[class~="dark"] {
+  ...;
+}
+```
+
+### remix-themes をインストールする
+
+まず、`remix-themes` をインストールします:
+
+```bash
+npm install remix-themes
+```
+
+### セッションストレージとテーマセッションリゾルバーを作成する
+
+```tsx title="app/sessions.server.tsx"
+import { createThemeSessionResolver } from "remix-themes"
+
+// process.env.NODE_ENV が設定されていない場合は、デフォルトを 'development' にできます。
+const isProduction = process.env.NODE_ENV === "production"
+
+const sessionStorage = createCookieSessionStorage({
+  cookie: {
+    name: "theme",
+    path: "/",
+    httpOnly: true,
+    sameSite: "lax",
+    secrets: ["s3cr3t"],
+    // 本番環境のみで domain と secure を設定します。
+    ...(isProduction
+      ? { domain: "your-production-domain.com", secure: true }
+      : {}),
+  },
+})
+
+export const themeSessionResolver = createThemeSessionResolver(sessionStorage)
+```
+
+### Remix Themes をセットアップする
+
+ルートレイアウトに `ThemeProvider` を追加します.
+
+```tsx {1-3,6-11,15-22,25-26,28,33} title="app/root.tsx"
+import clsx from "clsx"
+import { PreventFlashOnWrongTheme, ThemeProvider, useTheme } from "remix-themes"
+
+import { themeSessionResolver } from "./sessions.server"
+
+// ローダーを使用して、セッションストレージからテーマを返します。
+export async function loader({ request }: LoaderFunctionArgs) {
+  const { getTheme } = await themeSessionResolver(request)
+  return {
+    theme: getTheme(),
+  }
+}
+
+// `ThemeProvider` をアプリでラップします。
+// `specifiedTheme` はセッションストレージに格納されているテーマです。
+// `themeAction` はセッションストレージでテーマを変更するために使用されるアクション名です。
+export default function AppWithProviders() {
+  const data = useLoaderData<typeof loader>()
+  return (
+    <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
+      <App />
+    </ThemeProvider>
+  )
+}
+
+export function App() {
+  const data = useLoaderData<typeof loader>()
+  const [theme] = useTheme()
+  return (
+    <html lang="en" className={clsx(theme)}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
+        <Links />
+      </head>
+      <body>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  )
+}
+```
+
+### アクションルートを追加する
+
+`/routes/action.set-theme.ts` にファイルを作成します. ユーザーがテーマを変更するときは、必ず ThemeProvider コンポーネントにファイル名を渡してください.このルートは、ユーザーが変更したときにセッションストレージに優先するテーマを格納するために使用されます.
+
+```tsx title="app/routes/action.set-theme.ts"
+import { createThemeAction } from "remix-themes"
+
+import { themeSessionResolver } from "./sessions.server"
+
+export const action = createThemeAction(themeSessionResolver)
+```
+
+### モード切り替えを追加する
+
+ライトモードとダークモードを切り替えるモード切り替えをサイトに配置します.
+
+```tsx title="components/mode-toggle.tsx"
+import { Moon, Sun } from "lucide-react"
+import { Theme, useTheme } from "remix-themes"
+
+import { Button } from "./ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu"
+
+export function ModeToggle() {
+  const [, setTheme] = useTheme()
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">テーマを切り替える</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => setTheme(Theme.LIGHT)}>
+          ライト
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme(Theme.DARK)}>
+          ダーク
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  )
+}
+```
+
+</手順>

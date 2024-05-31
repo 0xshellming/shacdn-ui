@@ -1,0 +1,71 @@
+---
+title: スクロールエリア
+description: カスタムでブラウザのスタイルに準拠するスクロール機能をネイティブに拡張します。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/scroll-area
+  api: https://www.radix-ui.com/docs/primitives/components/scroll-area#api-reference
+---
+
+<ComponentPreview name="scroll-area-demo" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add scroll-area
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-scroll-area
+```
+
+<Step>次のコードをプロジェクトにコピー＆ペーストします。</Step>
+
+<ComponentSource name="scroll-area" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import { ScrollArea } from "@/components/ui/scroll-area"
+```
+
+```tsx
+<ScrollArea className="h-[200px] w-[350px] rounded-md border p-4">
+  ジョーカーは夜中に城に忍び込み、いたるところにジョークを仕掛け始めました。
+  王の枕の下、スープの中、王室のトイレの中にも。
+  王様は激怒しましたが、ジョーカーを止めることができませんでした。
+  そしてある日、王国の人々はジョーカーが残したジョークが
+  あまりにも面白すぎて笑わずにはいられないことに気づきました。
+  そして一度笑い始めると、もう止まりませんでした。
+</ScrollArea>
+```
+
+## 例
+
+### 水平スクロール
+
+<ComponentPreview name="scroll-area-horizontal-demo" />

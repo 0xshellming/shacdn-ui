@@ -1,0 +1,114 @@
+---
+title:  Vite
+description:  Viteをインストールして設定する。
+---
+
+<Steps>
+
+### プロジェクトの作成
+
+`vite` を使用して、新しい React プロジェクトを作成することから始めます。
+
+```bash
+npm create vite@latest
+```
+
+### Tailwind とそれの設定の追加
+
+`tailwindcss` とそのピア依存関係をインストールし、`tailwind.config.js` ファイルと `postcss.config.js` ファイルを生成します。
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
+```
+
+### tsconfig.json ファイルの編集
+
+パスを解決するために、次のコードを `tsconfig.json` ファイルに追加します。
+
+```ts {4-9} showLineNumbers
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
+```
+
+### vite.config.ts の更新
+
+アプリがエラーなしでパスを解決できるように、次のコードを vite.config.ts に追加します。
+
+```bash
+# （「path」をエラーなしでインポートできます）
+npm i -D @types/node
+```
+
+```typescript
+import path from "path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})
+```
+
+### CLI の実行
+
+`shadcn-ui` init コマンドを実行してプロジェクトをセットアップします。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+### components.json の設定
+
+`components.json` を設定するための質問がいくつか表示されます。
+
+```txt showLineNumbers
+TypeScript を使用しますか （推奨）？ no / yes
+どのスタイルを使用しますか？ › Default
+基本カラーとしてどの色を使用しますか？ › Slate
+グローバル CSS ファイルはどこにありますか？ › › src/index.css
+色のために CSS 変数を使用しますか？ › no / yes
+tailwind.config.js はどこにありますか？ › tailwind.config.js
+コンポーネントのインポートエイリアスを設定します › @/components
+ユーティリティのインポートエイリアスを設定します › @/lib/utils
+React サーバーコンポーネントを使用していますか？ › no / yes (no)
+```
+
+### これでおしまい
+
+これで、コンポーネントをプロジェクトに追加できます。
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+上記のコマンドは `Button` コンポーネントをプロジェクトに追加します。次のようにインポートできます。
+
+```tsx {1,6} showLineNumbers
+import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>  )
+}
+```
+
+</Steps>

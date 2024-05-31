@@ -1,0 +1,101 @@
+---
+title: シート
+description: Dialog コンポーネントを拡張して、画面のメインコンテンツを補完するコンテンツを表示します。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/dialog
+  api: https://www.radix-ui.com/docs/primitives/components/dialog#api-reference
+---
+
+<ComponentPreview name="sheet-demo" description="シートコンポーネント" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add sheet
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-dialog
+```
+
+<Step>次のコードをプロジェクトにコピーアンドペーストします。</Step>
+
+<ComponentSource name="sheet" />
+
+<Step>プロジェクトのセットアップに合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+### 使い方
+
+```tsx
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+```
+
+```tsx
+<Sheet>
+  <SheetTrigger>開く</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>本当に削除しますか?</SheetTitle>
+      <SheetDescription>
+        このアクションは元に戻せません。アカウントは完全に削除され、データはすべてサーバーから削除されます。
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```
+
+## 例
+
+### サイド
+
+`side` プロパティを `<SheetContent />` に使用して、コンポーネントが表示される画面の端を指定します。値は `top`、`right`、`bottom`、または `left` にできます。
+
+<ComponentPreview name="sheet-side" />
+
+### サイズ
+
+CSS クラスを使用してシートのサイズを調整できます。
+
+```tsx {3}
+<Sheet>
+  <SheetTrigger>開く</SheetTrigger>
+  <SheetContent className="w-[400px] sm:w-[540px]">
+    <SheetHeader>
+      <SheetTitle>本当に削除しますか?</SheetTitle>
+      <SheetDescription>
+        このアクションは元に戻せません。アカウントは完全に削除され、データはすべてサーバーから削除されます。
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>
+```

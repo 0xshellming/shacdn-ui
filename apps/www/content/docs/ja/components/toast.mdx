@@ -1,0 +1,153 @@
+---
+title: トースト
+description: 一時的に表示される、要約されたメッセージ。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/toast/ja-JP
+  api: https://www.radix-ui.com/docs/primitives/components/toast/ja-JP#api-reference
+---
+
+<ComponentPreview name="toast-demo" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+<Steps>
+
+<Step>以下のコマンドを実行してください:</Step>
+
+```bash
+npx shadcn-ui@latest add toast
+```
+
+<Step>Toaster コンポーネントを追加する</Step>
+
+```tsx title="app/layout.tsx" {1,9}
+import { Toaster } from "@/components/ui/toaster"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  )
+}
+```
+
+</Steps>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールしてください:</Step>
+
+```bash
+npm install @radix-ui/react-toast
+```
+
+<Step>以下のコードをプロジェクトにコピー アンド ペースト してください。</Step>
+
+`toast.tsx`
+
+<ComponentSource name="toast" />
+
+`toaster.tsx`
+
+<ComponentSource name="toast" fileName="toaster" />
+
+`use-toast.tsx`
+
+<ComponentSource name="toast" fileName="use-toast" />
+
+<Step>プロジェクトの設定に一致するようにインポート パスを更新してください。</Step>
+
+<Step>Toaster コンポーネントを追加する</Step>
+
+```tsx title="app/layout.tsx" {1,9}
+import { Toaster } from "@/components/ui/toaster"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  )
+}
+```
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+`useToast` フックは、トーストを表示するために使用できる `toast` 関数を返します。
+
+```tsx
+import { useToast } from "@/components/ui/use-toast"
+```
+
+```tsx {2,7-10}
+export const ToastDemo = () => {
+  const { toast } = useToast()
+
+  return (
+    <Button
+      onClick={() => {
+        toast({
+          title: "スケジュール: 巻き戻し",
+          description: "2023 年 2 月 10 日金曜日午後 5 時 57 分",
+        })
+      }}
+    >
+      トーストを表示
+    </Button>
+  )
+}
+```
+
+<Callout>
+
+同時に複数のトーストを表示するには、`use-toast.tsx` で `TOAST_LIMIT` を更新できます。
+
+</Callout>
+
+## 例
+
+### シンプル
+
+<ComponentPreview name="toast-simple" />
+
+### タイトル付き
+
+<ComponentPreview name="toast-with-title" />
+
+### アクション付き
+
+<ComponentPreview name="toast-with-action" />
+
+### デストラクティブ
+
+`toast({ variant: "destructive" })` を使用して、デストラクティブ トーストを表示します。
+
+<ComponentPreview name="toast-destructive" />

@@ -1,0 +1,67 @@
+---
+title: ホバーカード
+description: 視覚ユーザーがリンクの後ろに利用可能なコンテンツをプレビューするためのものです。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/hover-card
+  api: https://www.radix-ui.com/docs/primitives/components/hover-card#api-reference
+---
+
+<ComponentPreview name="hover-card-demo" description="ホバーカードコンポーネント" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add hover-card
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Step>以下の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-hover-card
+```
+
+<Steps>
+
+<Step>コードをプロジェクトにコピーアンドペーストします。</Step>
+
+<ComponentSource name="hover-card" />
+
+<Step>インポートパスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+```
+
+```tsx
+<HoverCard>
+  <HoverCardTrigger>ホバー</HoverCardTrigger>
+  <HoverCardContent>
+    Reactフレームワーク - @vercelによって作成および保守されています。
+  </HoverCardContent>
+</HoverCard>
+```

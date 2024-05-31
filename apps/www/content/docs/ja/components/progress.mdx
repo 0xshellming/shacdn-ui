@@ -1,0 +1,58 @@
+---
+title: 進捗状況
+description: タスクの完了の進捗状況を表示するインジケータで、通常はプログレス バーとして表示されます。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/progress
+  api: https://www.radix-ui.com/docs/primitives/components/progress#api-reference
+---
+
+<ComponentPreview name="progress-demo" />
+
+## インストール方法
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add progress
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールする:</Step>
+
+```bash
+npm install @radix-ui/react-progress
+```
+
+<Step>プロジェクトに以下のコードをコピーして貼り付けます。</Step>
+
+<ComponentSource name="progress" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import { Progress } from "@/components/ui/progress"
+```
+
+```tsx
+<Progress value={33} />
+```

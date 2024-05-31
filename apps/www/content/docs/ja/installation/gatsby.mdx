@@ -1,0 +1,120 @@
+---
+title: Gatsby
+description: Gatsbyのインストールと設定
+---
+
+<Steps>
+
+### プロジェクトを作成する
+
+まず、`create-gatsby`を使用して新しいGatsbyプロジェクトを作成します。
+
+```bash
+npm init gatsby
+```
+
+### GatsbyプロジェクトをTypeScriptとTailwind CSSを使用するように設定する
+
+プロジェクトの設定に関する質問がいくつか表示されます。
+
+```txt showLineNumbers
+✔ サイトの名前を教えてください。
+· your-app-name
+✔ サイトを作成するフォルダーの名前を教えてください。
+· your-app-name
+✔ JavaScriptとTypeScriptのどちらを使用しますか？
+· TypeScript
+✔ CMSを使用しますか？
+· 好きなのを選んでください
+✔ スタイリングシステムをインストールしますか？
+· Tailwind CSS
+✔ その他のプラグインを使用して追加機能をインストールしますか？
+· 好きなのを選んでください
+✔ これを実行しますか? (Y/n) · Yes
+```
+
+### tsconfig.jsonファイルを編集する
+
+パスを解決するために、以下のコードを`tsconfig.json`ファイルに追加します。
+
+```ts {4-9} showLineNumbers
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
+```
+
+### gatsby-node.tsファイルを作成する
+
+プロジェクトのルートに`gatsby-node.ts`ファイルがない場合は作成し、アプリケーションがパスを解決できるように、以下のコードを`gatsby-node`ファイルに追加します。
+
+```ts
+import * as path from "path"
+
+export const onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "@/components": path.resolve(__dirname, "src/components"),
+        "@/lib/utils": path.resolve(__dirname, "src/lib/utils"),
+      },
+    },
+  })
+}
+```
+
+### CLIを実行する
+
+プロジェクトを設定するために、`shadcn-ui` initコマンドを実行します。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+### components.jsonを設定する
+
+`components.json`の設定に関する質問がいくつか表示されます。
+
+```txt showLineNumbers
+TypeScriptを使用しますか?(推奨): no / yes
+どのスタイルを使用しますか? › デフォルト
+ベースカラーとして使用したい色は? › スレート
+グローバルCSSファイルはどこにありますか? › › ./src/styles/globals.css
+色のCSS変数を使用しますか? › no / yes
+tailwind.config.jsはどこにありますか? › tailwind.config.js
+コンポーネントのインポートエイリアスを設定: › @/components
+ユーティリティのインポートエイリアスを設定: › @/lib/utils
+React Server Componentsを使用していますか? › no
+```
+
+### 完了
+
+これでコンポーネントをプロジェクトに追加できます。
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+上記のコマンドを実行すると、`Button`コンポーネントがプロジェクトに追加されます。次のようにインポートできます。
+
+```tsx {1,6} showLineNumbers
+import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>クリックしてください</Button>
+    </div>
+  )
+}
+```
+
+</Steps>

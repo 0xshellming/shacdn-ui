@@ -1,36 +1,36 @@
 {
   "Index": {
     "header": {
-      "heading": "使用shadcn/ui快速构建你的组件库",
-      "description": "设计精美的组件，您可以复制并粘贴到您的应用程序中。可访问、可定制、开源。"
+      "heading": "shadcn/uiを使用して、素早くコンポーネントライブラリを構築",
+      "description": "美しいデザインのコンポーネントをアプリケーションにコピー＆ペーストできます。アクセス可能、カスタマイズ可能、オープンソース。"
     }
   },
   "Examples": {
     "Layout": {
-      "check-out-some-examples": "使用案例",
-      "examples": "示例",
-      "description": "仪表盘、卡片、身份验证。一些使用组件构建的示例。以此为指导构建您自己的应用程序。"
+      "check-out-some-examples": "事例をチェック",
+      "examples": "事例",
+      "description": "ダッシュボード、カード、認証。コンポーネントを使った事例のいくつか。これらをガイドにして独自のアプリケーションを構築してください。"
     }
   },
   "Global": {
-    "get-started": "快速开始",
-    "components": "组件",
-    "docs": "文档",
-    "themes": "主题",
-    "examples": "示例",
-    "blocks": "模块",
-    "search": "搜索",
-    "search-documentation": "搜索文档",
-    "locales": "简体中文",
-    "customize": "定制化",
-    "CopyCode": "复制代码"
+    "get-started": "スタートガイド",
+    "components": "コンポーネント",
+    "docs": "ドキュメント",
+    "themes": "テーマ",
+    "examples": "例",
+    "blocks": "ブロック",
+    "search": "検索",
+    "search-documentation": "ドキュメントを検索",
+    "locales": "簡体字中国語",
+    "customize": "カスタマイズ",
+    "CopyCode": "コードをコピー"
   },
   "Blocks": {
-    "desc": "设计精美，开源。通过复制粘贴构建你的应用。",
-    "building-blocks-for-the-web": "使用Block构建网站"
+    "desc": "デザインが美しく、オープンソース。コピー&ペーストでアプリケーションを構築。",
+    "building-blocks-for-the-web": "Blockを使用してウェブサイトを構築"
   },
   "Themes": {
-    "title": "添加验证，定制你自己的主题。",
-    "desc": "你可以将精心挑选的主题复制并粘贴到您的应用程序中。"
+    "title": "バリデーションを追加し、独自のテーマをカスタマイズ。",
+    "desc": "厳選されたテーマをアプリケーションにコピー＆ペーストできます。"
   }
 }

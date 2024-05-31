@@ -1,0 +1,86 @@
+---
+title: カレンダー
+description: ユーザーが日付を入力および編集できる日付フィールドコンポーネント。
+component: true
+links:
+  doc: https://react-day-picker.js.org
+---
+
+<ComponentPreview name="calendar-demo" />
+
+## 概要
+
+`Calendar` コンポーネントは [React DayPicker](https://react-day-picker.js.org) 上に構築されています。
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add calendar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールしてください:</Step>
+
+```bash
+npm install react-day-picker date-fns
+```
+
+<Step>`Button` コンポーネントをプロジェクトに追加します。</Step>
+
+`Calendar` コンポーネントは `Button` コンポーネントを使用します。必ずプロジェクトにインストールされていることを確認してください。
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="calendar" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import { Calendar } from "@/components/ui/calendar"
+```
+
+```tsx
+const [date, setDate] = React.useState<Date | undefined>(new Date())
+
+return (
+  <Calendar
+    mode="single"
+    selected={date}
+    onSelect={setDate}
+    className="rounded-md border"
+  />
+)
+```
+
+詳細については [React DayPicker](https://react-day-picker.js.org) ドキュメントを参照してください。
+
+## DayPicker
+
+`<Calendar>` コンポーネントを使用して日付選択機能を構築できます。詳細については [DayPicker](/docs/components/date-picker) ページを参照してください。
+
+## 例
+
+### フォーム
+
+<ComponentPreview name="calendar-form" />

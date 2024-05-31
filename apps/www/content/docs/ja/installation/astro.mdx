@@ -1,0 +1,165 @@
+---
+title: アストロ
+description: アストロのインストールと構成
+---
+
+<Steps>
+
+### プロジェクトの作成
+
+新しいアストロプロジェクトを作成することから始めます。
+
+```bash
+npm create astro@latest
+```
+
+### アストロプロジェクトの構成
+
+プロジェクトの構成に関するいくつかの質問が尋ねられます。
+
+```txt showLineNumbers
+- 新規プロジェクトをどこに作成する必要がありますか?
+./your-app-name
+- 新規プロジェクトをどのように開始しますか?
+スターターテンプレート（または空）を選択してください
+- 依存関係をインストールしますか?
+はい
+- TypeScriptを書く予定はありますか?
+はい
+- TypeScriptはどれほど厳密にする必要がありますか?
+厳密
+- 新しいgitリポジトリを初期化しますか（オプション）?
+はい/いいえ
+```
+
+### プロジェクトにReactを追加する
+
+アストロCLIを使用してReactをインストールします。
+
+```bash
+npx astro add react
+```
+
+<Callout className="mt-4">
+
+Reactをインストールするときに、CLIによって尋ねられるすべての質問には「はい」と答えます。
+
+</Callout>
+
+### プロジェクトにTailwind CSSを追加する
+
+アストロCLIを使用してTailwind CSSをインストールします。
+
+```bash
+npx astro add tailwind
+```
+
+<Callout className="mt-4">
+
+Tailwind CSSのインストール時にCLIによって尋ねられるすべての質問に「はい」と答えます。
+
+</Callout>
+
+### tsconfig.jsonファイルの編集
+
+次のコードを`tsconfig.json`ファイルに追加してパスを解決します。
+
+```ts {4-9} showLineNumbers
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
+```
+
+### CLIの実行
+
+`shadcn-ui` initコマンドを実行してプロジェクトをセットアップします。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+### components.jsonの構成
+
+`components.json`を構成するために、いくつかの質問が尋ねられます。
+
+```txt showLineNumbers
+TypeScriptを使用しますか（推奨）? いいえ/はい
+どのスタイルを使用しますか? › デフォルト
+ベースカラーとして使用する色を入力してください。 › スレート
+グローバルCSSファイルはどこにありますか? › › ./src/styles/globals.css
+カラーのCSS変数を使用しますか? › いいえ/はい
+tailwind.config.jsはどこにありますか? › tailwind.config.mjs
+コンポーネントのインポートエイリアスを構成します。 › @/components
+ユーティリティのインポートエイリアスを構成します。 › @/lib/utils
+React Server Componentsを使用していますか? › いいえ
+```
+
+### globals.cssファイルのインポート
+
+`src/pages/index.astro`ファイルに`globals.css`ファイルをインポートします。
+
+```ts {2} showLineNumbers
+---
+import '@/styles/globals.css'
+---
+```
+
+### アストロtailwind構成の更新
+
+Tailwindの基本スタイルを2回適用することを防ぐために、`astro.config.mjs`のtailwindプラグインの`applyBaseStyles`構成オプションを`false`に設定して、アストロに基本スタイルを適用しないようにする必要があります。
+
+```ts {3-5} showLineNumbers
+export default defineConfig({
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
+})
+```
+
+### tailwind.config.mjsの更新
+
+`npx shadcn-ui@latest init`を実行すると、コンテンツのtailwind構成が上書きされます。これを修正するには、`module.exports`を`export default`に変更し、`content`セクションを次のコードに置き換えて`tailwind.config.mjs`ファイルに追加します。
+
+```js {1-4} showLineNumbers
+export default {
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+}
+```
+
+### これだけです
+
+コンポーネントをプロジェクトに追加し始められます。
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+上記のコマンドは、`Button`コンポーネントをプロジェクトに追加します。その後、次のようにインポートできます。
+
+```astro {2,10} showLineNumbers
+---
+import { Button } from "@/components/ui/button"
+---
+
+<html lang="en">
+	<head>
+		<title>アストロ</title>
+	</head>
+	<body>
+		<Button>こんにちは世界</Button>
+	</body>
+</html>
+```
+
+</Steps>

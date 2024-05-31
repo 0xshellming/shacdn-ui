@@ -1,0 +1,85 @@
+---
+title:  テキストエリア
+description:  フォームテキストエリアまたはテキストエリアのようなコンポーネントを表示します。
+component: true
+---
+
+<ComponentPreview name="textarea-demo" description="テキストエリア" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add textarea
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="textarea" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使い方
+
+```tsx
+import { Textarea } from "@/components/ui/textarea"
+```
+
+```tsx
+<Textarea />
+```
+
+## 例
+
+### デフォルト
+
+<ComponentPreview name="textarea-demo" description="テキストエリア" />
+
+### 無効
+
+<ComponentPreview name="textarea-disabled" description="無効なテキストエリア" />
+
+### ラベル付き
+
+<ComponentPreview
+  name="textarea-with-label"
+  className="[&_div.grid]:w-full"
+  description="ラベル付きテキストエリア"
+/>
+
+### テキスト付き
+
+<ComponentPreview
+  name="textarea-with-text"
+  description="テキスト付きテキストエリア"
+/>
+
+### ボタン付き
+
+<ComponentPreview
+  name="textarea-with-button"
+  description="ボタン付きテキストエリア"
+/>
+
+### フォーム
+
+<ComponentPreview name="textarea-form" />

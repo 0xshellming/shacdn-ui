@@ -1,0 +1,153 @@
+---
+title: Laravel
+description: Laravel と Inertia を使用して Laravel をインストールして構成する
+---
+
+<Steps>
+
+### プロジェクトの作成
+
+laravel インストーラー `laravel new my-app` を使用して Inertia と React を使用して新しい Laravel プロジェクトを作成することから始めます。
+
+```bash
+laravel new my-app --typescript --breeze --stack=react --git --no-interaction
+```
+
+### CLI の実行
+
+`shadcn-ui` init コマンドを実行してプロジェクトを設定します。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+### components.json の構成
+
+以下に関する質問が数点表示され、`components.json` を構成できます。
+
+```txt showLineNumbers
+あなたは TypeScript を使用したいですか (推奨)? no / yes
+どのスタイルを使用したいですか? › デフォルト
+基本色としてどの色を使用しますか? › スレート
+グローバル CSS ファイルはどこにありますか? › resources/css/app.css
+色の CSS 変数を使用しますか? › no / yes
+tailwind.config.js はどこに配置されていますか? › tailwind.config.js
+コンポーネントのインポートエイリアスを構成する: › @/Components
+utility のインポートエイリアスを構成する: › @/lib/utils
+React Server Components を使用していますか? › no / yes
+```
+
+### tailwind.config.js の更新
+
+`shadcn-ui` CLI は、自動的に `tailwind.config.js` を上書きします。次のように見えるように更新します:
+
+```js
+import forms from "@tailwindcss/forms"
+import defaultTheme from "tailwindcss/defaultTheme"
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: "class",
+  content: [
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+    "./storage/framework/views/*.php",
+    "./resources/views/**/*.blade.php",
+    "./resources/js/**/*.tsx",
+  ],
+
+  theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: `var(--radius)`,
+        md: `calc(var(--radius) - 2px)`,
+        sm: "calc(var(--radius) - 4px)",
+      },
+      fontFamily: {
+        sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+  },
+
+  plugins: [forms, require("tailwindcss-animate")],
+}
+```
+
+### 以上です
+
+これで、プロジェクトにコンポーネントを追加できます。
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+上記のコマンドは、`Button` コンポーネントをプロジェクトに追加します。その後、次のようにインポートできます。
+
+```tsx {1,6} showLineNumbers
+import { Button } from "@/Components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>クリックしてください</Button>
+    </div>
+  )
+}
+```
+
+</Steps>

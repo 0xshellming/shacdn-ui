@@ -1,0 +1,57 @@
+---
+title:  区切り線
+description:  コンテンツを視覚的、意味的に区切ります。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/separator
+  api: https://www.radix-ui.com/docs/primitives/components/separator#api-reference
+---
+
+<ComponentPreview name="separator-demo" description="区切り線のコンポーネントです。" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add separator
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+<Step>次の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-separator
+```
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="separator" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使い方
+
+```tsx
+import {Separator} from "@/components/ui/separator"
+```
+
+```tsx
+<Separator />
+```

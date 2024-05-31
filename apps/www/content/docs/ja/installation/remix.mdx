@@ -1,0 +1,117 @@
+---
+title: Remix
+description: Remix のインストールと設定
+---
+
+<Steps>
+
+### プロジェクトの作成
+
+最初に、`create-remix` を使用して新しい Remix プロジェクトを作成します。
+
+```bash
+npx create-remix@latest my-app
+```
+
+### CLI の実行
+
+`shadcn-ui` の init コマンドを実行して、プロジェクトを設定します。
+
+```bash
+npx shadcn-ui@latest init
+```
+
+### components.json の設定
+
+`components.json` を設定するためにいくつかの質問をします。
+
+```txt showLineNumbers
+TypeScript を使用しますか (推奨)? no / yes
+使用するスタイルはどれですか? › Default
+基本的な色として使用する色はどれですか? › Slate
+グローバル CSS ファイルはどこにありますか? › app/tailwind.css
+色に CSS 変数を使用しますか? › no / yes
+tailwind.config.js はどこに配置されていますか? › tailwind.config.js
+コンポーネントのインポートエイリアスを設定: › ~/components
+ユーティリティのインポートエイリアスを設定: › ~/lib/utils
+React サーバーコンポーネントを使用していますか? › no
+```
+
+### アプリの構造
+
+<Callout>
+
+**注**: このアプリ構造は単なる提案です。ファイルをどこに配置してもかまいません。
+
+</Callout>
+
+- UI コンポーネントは `app/components/ui` フォルダに配置します。
+- 独自のコンポーネントは `app/components` フォルダに配置できます。
+- `app/lib` フォルダには、すべてのユーティリティ関数が含まれます。`cn` ヘルパーを定義した `utils.ts` があります。
+- `app/tailwind.css` ファイルには、グローバル CSS が含まれます。
+
+### Tailwind CSS のインストール
+
+```bash
+npm add -D tailwindcss@latest autoprefixer@latest
+```
+
+次に、`postcss.config.js` ファイルを作成します。
+
+```js
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}
+```
+
+最後に、`remix.config.js` ファイルに以下を追加します。
+
+```js {4-5}
+/** @type {import('@remix-run/dev').AppConfig} */
+export default {
+  ...
+  tailwind: true,
+  postcss: true,
+  ...
+};
+```
+
+### アプリに `tailwind.css` を追加
+
+`app/root.tsx` ファイルで、`tailwind.css` ファイルをインポートします。
+
+```js {1, 4}
+import styles from "./tailwind.css"
+
+export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
+  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+]
+```
+
+### 以上
+
+これで、プロジェクトにコンポーネントを追加できます。
+
+```bash
+npx shadcn-ui@latest add button
+```
+
+上記のコマンドを実行すると、`Button` コンポーネントがプロジェクトに追加されます。その後、次のようにインポートできます。
+
+```tsx {1,6} showLineNumbers
+import { Button } from "~/components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}
+```
+
+</Steps>

@@ -1,0 +1,212 @@
+---
+title: Breadcrumb
+description: 現在のリソースへのパスをリンクの階層を使用して表示する
+component: true
+---
+
+<ComponentPreview
+  name="breadcrumb-demo"
+  className="[&_.preview]:p-2"
+  description="折りたたみ可能なドロップダウンを持つBreadcrumb。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add breadcrumb
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>プロジェクトに以下のコードをコピーアンドペーストする。</Step>
+
+<ComponentSource name="breadcrumb" />
+
+<Step>プロジェクトの設定に合わせてインポートパスをアップデートする。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+```
+
+```tsx
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">コンポーネント</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator />
+    <BreadcrumbItem>
+      <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+## 例
+
+### カスタムセパレータ
+
+`<BreadcrumbSeparator />` の `children` にカスタムコンポーネントを使用すると、カスタムセパレータを作成できます。
+
+<ComponentPreview
+  name="breadcrumb-separator"
+  description="カスタムセパレータを持つBreadcrumb"
+/>
+
+```tsx showLineNumbers {1,10-12}
+import { Slash } from "lucide-react"
+
+...
+
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/">Home</BreadcrumbLink>
+    </BreadcrumbItem>
+    <BreadcrumbSeparator>
+      <Slash />
+    </BreadcrumbSeparator>
+    <BreadcrumbItem>
+      <BreadcrumbLink href="/components">コンポーネント</BreadcrumbLink>
+    </BreadcrumbItem>
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+---
+
+### ドロップダウン
+
+Breadcrumb に `<DropdownMenu />` を `<BreadcrumbItem />` と組み合わせることで、ドロップダウンを作成できます。
+
+<ComponentPreview
+  name="breadcrumb-dropdown"
+  className="[&_.preview]:p-2"
+  description="ドロップダウンを持つBreadcrumb。"
+/>
+
+```tsx showLineNumbers {1-6,11-21}
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+...
+
+<BreadcrumbItem>
+  <DropdownMenu>
+    <DropdownMenuTrigger className="flex items-center gap-1">
+      コンポーネント
+      <ChevronDownIcon />
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="start">
+      <DropdownMenuItem>ドキュメント</DropdownMenuItem>
+      <DropdownMenuItem>テーマ</DropdownMenuItem>
+      <DropdownMenuItem>GitHub</DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>
+</BreadcrumbItem>
+```
+
+---
+
+### 折りたたみ
+
+breadcrumb が長すぎると折りたたまれた状態を表示する `<BreadcrumbEllipsis />` コンポーネントを提供します。
+
+<ComponentPreview
+  name="breadcrumb-ellipsis"
+  className="[&_.preview]:p-2"
+  description="折りたたまれた状態を表示するBreadcrumb。"
+/>
+
+```tsx showLineNumbers {1,9}
+import { BreadcrumbEllipsis } from "@/components/ui/breadcrumb"
+
+...
+
+<Breadcrumb>
+  <BreadcrumbList>
+    {/* ... */}
+    <BreadcrumbItem>
+      <BreadcrumbEllipsis />
+    </BreadcrumbItem>
+    {/* ... */}
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+---
+
+### リンクコンポーネント
+
+ルーティングライブラリ独自のカスタムリンクコンポーネントを使用するには、`<BreadcrumbLink />` の `asChild` プロパティを使用できます。
+
+<ComponentPreview
+  name="breadcrumb-link"
+  description="カスタムリンクコンポーネントを持つBreadcrumb"
+/>
+
+```tsx showLineNumbers {1,8-10}
+import { Link } from "next/link"
+
+...
+
+<Breadcrumb>
+  <BreadcrumbList>
+    <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+        <Link href="/">Home</Link>
+      </BreadcrumbLink>
+    </BreadcrumbItem>
+    {/* ... */}
+  </BreadcrumbList>
+</Breadcrumb>
+```
+
+---
+
+### レスポンシブ
+
+`<BreadcrumbItem />` を `<BreadcrumbEllipsis />`、`<DropdownMenu />`、`<Drawer />` と組み合わせてコンポーネント化したレスポンシブな breadcrumb の例です。
+
+デスクトップではドロップダウンが、モバイルではドロワーが表示されます。
+
+<ComponentPreview
+  name="breadcrumb-responsive"
+  className="[&_.preview]:p-2"
+  description="レスポンシブなBreadcrumb。デスクトップではドロップダウンが表示され、モバイルではドロワーが表示されます。"
+/>

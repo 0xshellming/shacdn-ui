@@ -1,0 +1,58 @@
+---
+title:  ラベル
+description:  コントロールに関連付けられたアクセス可能なラベルをレンダリングします。
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/label
+  api: https://www.radix-ui.com/docs/primitives/components/label#api-reference
+---
+
+<ComponentPreview name="label-demo" description="ラベル" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add label
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-label
+```
+
+<Step>以下のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="label" />
+
+<Step>インポートパスをプロジェクトの設定に合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import { Label } from "@/components/ui/label"
+```
+
+```tsx
+<Label htmlFor="email">メールアドレス</Label>
+```

@@ -1,0 +1,90 @@
+---
+title:  選択
+description:  ボタンをトリガーに、ユーザーが選択するオプションのリストを表示します。
+component: true
+featured: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/select
+  api: https://www.radix-ui.com/docs/primitives/components/select#api-reference
+---
+
+<ComponentPreview
+  name="select-demo"
+  description="オプションのリストを持つ選択コンポーネント。"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">手動</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add select
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>以下の依存関係をインストールします。</Step>
+
+```bash
+npm install @radix-ui/react-select
+```
+
+<Step>次のコードをプロジェクトにコピー＆ペーストします。</Step>
+
+<ComponentSource name="select" />
+
+<Step>プロジェクトの設定に合わせてインポートパスを更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用方法
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+```
+
+```tsx
+<Select>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="テーマ" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="light">Light</SelectItem>
+    <SelectItem value="dark">Dark</SelectItem>
+    <SelectItem value="system">システム</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## 例
+
+### スクロール可能
+
+<ComponentPreview
+  name="select-scrollable"
+  description="スクロール可能なオプションのリストを持つ選択コンポーネント。"
+/>
+
+### フォーム
+
+<ComponentPreview name="select-form" />

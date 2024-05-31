@@ -1,0 +1,93 @@
+---
+title:  トグル
+description: オンとオフの 2 つの状態を持つボタン
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/toggle
+  api: https://www.radix-ui.com/docs/primitives/components/toggle#api-reference
+---
+
+<ComponentPreview name="toggle-demo" description="トグル コンポーネント" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add toggle
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-toggle
+```
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="toggle" />
+
+<Step>インポート パスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import { Toggle } from "@/components/ui/toggle"
+```
+
+```tsx
+<Toggle>トグル</Toggle>
+```
+
+## サンプル
+
+### デフォルト
+
+<ComponentPreview name="toggle-demo" description="トグル コンポーネント" />
+
+### アウトライン
+
+<ComponentPreview
+  name="toggle-outline"
+  description="アウトラインバリアントを使用するトグル コンポーネント"
+/>
+
+### テキストあり
+
+<ComponentPreview
+  name="toggle-with-text"
+  description="テキスト付きのトグル コンポーネント"
+/>
+
+### 小さい
+
+<ComponentPreview name="toggle-sm" description="小さなトグル コンポーネント" />
+
+### 大きい
+
+<ComponentPreview name="toggle-lg" description="大きなトグル コンポーネント" />
+
+### 無効化
+
+<ComponentPreview
+  name="toggle-disabled"
+  description="無効化されたトグル コンポーネント"
+/>

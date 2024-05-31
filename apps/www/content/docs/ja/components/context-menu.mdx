@@ -1,0 +1,74 @@
+---
+title: コンテキスト メニュー
+description: ボタンによってトリガーされるアクションや機能などのセットをユーザーに表示するメニュー
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/context-menu
+  api: https://www.radix-ui.com/docs/primitives/components/context-menu#api-reference
+---
+
+<ComponentPreview
+  name="context-menu-demo"
+  description="サブメニューアイテムのあるコンテキストメニュー"
+/>
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add context-menu
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>次の依存関係をインストールします:</Step>
+
+```bash
+npm install @radix-ui/react-context-menu
+```
+
+<Step>次のコードをプロジェクトにコピーして貼り付けます。</Step>
+
+<ComponentSource name="context-menu" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用法
+
+```tsx
+import {
+  ContextMenu,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuTrigger,
+} from "@/components/ui/context-menu"
+```
+
+```tsx
+<ContextMenu>
+  <ContextMenuTrigger>右クリック</ContextMenuTrigger>
+  <ContextMenuContent>
+    <ContextMenuItem>プロフィール</ContextMenuItem>
+    <ContextMenuItem>請求</ContextMenuItem>
+    <ContextMenuItem>チーム</ContextMenuItem>
+    <ContextMenuItem>サブスクリプション</ContextMenuItem>
+  </ContextMenuContent>
+</ContextMenu>
+```

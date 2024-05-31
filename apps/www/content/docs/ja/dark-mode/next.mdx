@@ -1,0 +1,66 @@
+---
+title: Next.js
+description: nextアプリにダークモードを追加する。
+---
+
+## ダークモード
+
+<手順>
+
+### next-themesのインストール
+
+`next-themes`をインストールします:
+
+```bash
+npm install next-themes
+```
+
+### テーマプロバイダーを作成する
+
+```tsx title="components/theme-provider.tsx"
+"use client"
+
+import * as React from "react"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { type ThemeProviderProps } from "next-themes/dist/types"
+
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+}
+```
+
+### ルートレイアウトをラップします
+
+`ThemeProvider`をルートレイアウトに追加します。
+
+```tsx {1,9-11} title="app/layout.tsx"
+import { ThemeProvider } from "@/components/theme-provider"
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
+  )
+}
+```
+
+### モードの切り替えを追加する
+
+サイト上にモードの切り替えを配置して、ライトモードとダークモードを切り替えます。
+
+<コンポーネントプレビュー name="mode-toggle" className="[&_.preview]:items-start" />
+
+</手順>

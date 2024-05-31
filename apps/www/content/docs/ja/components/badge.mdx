@@ -1,0 +1,91 @@
+---
+title:  バッジ
+description:  バッジまたはバッジのように見えるコンポーネントを表示する。
+component: true
+---
+
+<ComponentPreview name="badge-demo" description="バッジ" />
+
+## インストール
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+  <TabsTrigger value="manual">マニュアル</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn-ui@latest add badge
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>プロジェクトに以下のコードをコピーして貼り付けます。</Step>
+
+<ComponentSource name="badge" />
+
+<Step>インポートパスをプロジェクトのセットアップに合わせて更新します。</Step>
+
+</Steps>
+
+</TabsContent>
+
+</Tabs>
+
+## 使用
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+```
+
+```tsx
+<Badge variant="outline">バッジ</Badge>
+```
+
+### リンク
+
+`badgeVariants` ヘルパーを使用して、バッジのように見えるリンクを作成できます。
+
+```tsx
+import { badgeVariants } from "@/components/ui/badge"
+```
+
+```tsx
+<Link className={badgeVariants({ variant: "outline" })}>バッジ</Link>
+```
+
+## 例
+
+### デフォルト
+
+<ComponentPreview name="badge-demo" description="バッジ" />
+
+---
+
+### セカンダリ
+
+<ComponentPreview
+  name="badge-secondary"
+  description="バッジを variant としてセカンダリで使用。"
+/>
+
+---
+
+### アウトライン
+
+<ComponentPreview
+  name="badge-outline"
+  description="バッジを variant としてアウトラインで使用。"
+/>
+
+---
+
+### デストラクティブ
+
+<ComponentPreview name="badge-destructive" description="デストラクティブなバッジ。" />
