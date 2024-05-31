@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation"
 import { getRequestConfig } from "next-intl/server"
 
-export const locales = ["en", "zh", 'ja'] as const
+export const locales = ["zh", 'ja'] as const
 
 export const localeNames: { [key: string]: string } = {
-  en: "English",
+  // en: "English",
   zh: "简体中文",
   ja: "日本語",
   // id: "Bahasa Indonesia",

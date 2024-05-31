@@ -2,7 +2,7 @@ import { createContentlayerPlugin } from "next-contentlayer"
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin();
-export const locales = ["en", "zh", 'ja']
+export const locales = ["zh", 'ja']
 
 const localeRedirects = (redirects) => {
   // 默认路由不需要加 locale
