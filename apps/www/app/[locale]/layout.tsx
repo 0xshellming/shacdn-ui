@@ -96,7 +96,9 @@ export default function LocaleLayout({
   return (
     <>
       <html lang={locale} suppressHydrationWarning>
-        <head />
+        <head>
+          <meta name="google-adsense-account" content="ca-pub-7271769670494785">
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",
