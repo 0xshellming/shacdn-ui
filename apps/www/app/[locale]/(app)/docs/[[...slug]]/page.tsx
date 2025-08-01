@@ -16,6 +16,7 @@ import { DocsPager } from "@/components/pager"
 import { DashboardTableOfContents } from "@/components/toc"
 import { badgeVariants } from "@/registry/new-york/ui/badge"
 import { ScrollArea } from "@/registry/new-york/ui/scroll-area"
+import { GetBlocks } from "@/components/get-blocks"
 
 interface DocPageProps {
   params: {
@@ -154,17 +155,18 @@ export default async function DocPage({ params, ...rest }: DocPageProps) {
         </div>
         <DocsPager doc={doc} />
       </div>
-      {doc.toc && (
-        <div className="hidden text-sm xl:block">
-          <div className="sticky top-16 -mt-10 pt-4">
-            <ScrollArea className="pb-10">
-              <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
+      <div className="hidden text-sm xl:block">
+        <div className="sticky top-16 -mt-10 pt-4">
+          <ScrollArea className="pb-10">
+            <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] space-y-4 py-12">
+              <GetBlocks />
+              {doc.toc && (
                 <DashboardTableOfContents toc={toc} />
-              </div>
-            </ScrollArea>
-          </div>
+              )}
+            </div>
+          </ScrollArea>
         </div>
-      )}
+      </div>
     </main>
   )
 }

@@ -14,6 +14,7 @@ import { ThemeSwitcher } from "@/components/theme-switcher"
 import { Toaster as DefaultToaster } from "@/registry/default/ui/toaster"
 import { Toaster as NewYorkSonner } from "@/registry/new-york/ui/sonner"
 import { Toaster as NewYorkToaster } from "@/registry/new-york/ui/toaster"
+import { GetBlocks } from "@/components/get-blocks"
 
 export async function generateMetadata({
   params: { locale },
@@ -115,6 +116,9 @@ export default function LocaleLayout({
               <div vaul-drawer-wrapper="">
                 <div className="relative flex min-h-screen flex-col bg-background">
                   {children}
+                </div>
+                <div className="flex items-center justify-center py-4">
+                  <GetBlocks />
                 </div>
               </div>
               <TailwindIndicator />

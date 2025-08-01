@@ -5,6 +5,9 @@
       "description": "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source."
     }
   },
+  "announcement": {
+    "title": "Best SaaS Template. Build your app rapidly."
+  },
   "Examples": {
     "Layout": {
       "check-out-some-examples": "Check out some examples",
@@ -19,6 +22,7 @@
   "Global": {
     "components": "Components",
     "get-started": "Get Started",
+    "go-docs": "Go Docs",
     "docs": "Docs",
     "themes": "Themes",
     "examples": "Examples",
@@ -27,6 +31,7 @@
     "search": "Search",
     "locales": "English",
     "customize": "Customize",
+    "templates": "Templates",
     "CopyCode": "Copy code"
   },
   "Themes": {

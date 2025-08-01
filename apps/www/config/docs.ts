@@ -21,7 +21,7 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: "Examples",
-      href: "/examples",
+      href: "https://mksaas.com?atp=shellming",
     },
     {
       title: "Blocks",

@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     "Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.",
   links: {
-    twitter: "https://twitter.com/QuXiaoMing",
+    twitter: "https://twitter.com/shellming_dev",
     github: "https://github.com/shadcn-ui/ui",
   },
   keywords: ["shadcn ui"],

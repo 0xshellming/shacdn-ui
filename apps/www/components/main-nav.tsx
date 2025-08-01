@@ -34,6 +34,28 @@ export function MainNav() {
           {t("Global.docs")}
         </Link>
         <Link
+          href="https://mksaas.com?atp=shellming"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname?.startsWith("/blocks")
+              ? "text-foreground"
+              : "text-foreground/60"
+          )}
+        >
+          {t('Global.templates')}
+        </Link>
+        <Link
+          href="https://www.shadcnblocks.com/?via=shellming"
+          className={cn(
+            "transition-colors hover:text-foreground/80",
+            pathname?.startsWith("/blocks")
+              ? "text-foreground"
+              : "text-foreground/60"
+          )}
+        >
+          {t('Global.blocks')}
+        </Link>
+        <Link
           href="/docs/components"
           className={cn(
             "transition-colors hover:text-foreground/80",
@@ -65,25 +87,6 @@ export function MainNav() {
           )}
         >
           {t('Global.examples')}
-        </Link>
-        <Link
-          href="/blocks"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/blocks")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          {t('Global.blocks')}
-        </Link>
-        <Link
-          href={siteConfig.links.github}
-          className={cn(
-            "hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block"
-          )}
-        >
-          GitHub
         </Link>
       </nav>
     </div>

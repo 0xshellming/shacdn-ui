@@ -43,7 +43,7 @@ export default function ExamplesLayout({
         </PageHeaderHeading>
         <PageHeaderDescription>{t("description")}</PageHeaderDescription>
         <PageActions>
-          <Link href="/docs" className={cn(buttonVariants(), "rounded-[6px]")}>
+          <Link href="https://mksaas.com?atp=shellming" className={cn(buttonVariants(), "rounded-[6px]")}>
             {$t("get-started")}
           </Link>
           <Link
@@ -53,7 +53,7 @@ export default function ExamplesLayout({
               "rounded-[6px]"
             )}
           >
-            {$t("components")}
+            {$t("go-docs")}
           </Link>
         </PageActions>
       </PageHeader>

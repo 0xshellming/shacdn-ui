@@ -5,6 +5,9 @@
       "description": "美しいデザインのコンポーネントをアプリケーションにコピー＆ペーストできます。アクセス可能、カスタマイズ可能、オープンソース。"
     }
   },
+  "announcement": {
+    "title": "最適なSaaSテンプレート. アプリケーションを素早く構築."
+  },
   "Examples": {
     "Layout": {
       "check-out-some-examples": "事例をチェック",
@@ -14,6 +17,7 @@
   },
   "Global": {
     "get-started": "スタートガイド",
+    "go-docs": "ドキュメントを見る",
     "components": "コンポーネント",
     "docs": "ドキュメント",
     "themes": "テーマ",
@@ -23,6 +27,7 @@
     "search-documentation": "ドキュメントを検索",
     "locales": "簡体字中国語",
     "customize": "カスタマイズ",
+    "templates": "テンプレート",
     "CopyCode": "コードをコピー"
   },
   "Blocks": {

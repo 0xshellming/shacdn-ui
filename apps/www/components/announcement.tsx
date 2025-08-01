@@ -1,18 +1,20 @@
 import { Link } from "@/navigation"
+import { Separator } from "@/registry/default/ui/separator"
 import { ArrowRightIcon } from "@radix-ui/react-icons"
-import { Blocks } from "lucide-react"
+import { Zap } from "lucide-react"
 
-import { Separator } from "@/registry/new-york/ui/separator"
+import { useTranslations } from "next-intl"
 
 export function Announcement() {
+  const t = useTranslations("announcement")
   return (
     <Link
-      href="/docs/changelog"
-      className="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium"
+      href="https://mksaas.com?atp=shellming"
+      className="mb-2 inline-flex animate-pulse items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium"
     >
-      <Blocks className="h-4 w-4" />{" "}
+      <Zap className="h-4 w-4" />{" "}
       <Separator className="mx-2 h-4" orientation="vertical" />{" "}
-      <span>Introducing Lift Mode</span>
+      <span>{t("title")}</span>
       <ArrowRightIcon className="ml-1 h-4 w-4" />
     </Link>
   )
