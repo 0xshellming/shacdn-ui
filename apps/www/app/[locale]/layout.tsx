@@ -99,8 +99,6 @@ export default function LocaleLayout({
       <html lang={locale} suppressHydrationWarning>
         <head>
           <meta name="google-adsense-account" content="ca-pub-7271769670494785" />
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785"
-     crossorigin="anonymous"></script>
         </head>
         <body
           className={cn(
@@ -132,6 +130,12 @@ export default function LocaleLayout({
             </NextIntlClientProvider>
           </ThemeProvider>
         </body>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-2VDJC7FNVL"
