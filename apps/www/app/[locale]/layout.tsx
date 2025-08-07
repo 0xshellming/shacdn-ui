@@ -99,6 +99,8 @@ export default function LocaleLayout({
       <html lang={locale} suppressHydrationWarning>
         <head>
           <meta name="google-adsense-account" content="ca-pub-7271769670494785" />
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785"
+     crossorigin="anonymous"></script>
         </head>
         <body
           className={cn(
