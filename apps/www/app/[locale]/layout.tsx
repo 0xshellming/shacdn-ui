@@ -132,7 +132,7 @@ export default function LocaleLayout({
         </body>
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785"
           strategy="afterInteractive"
           crossOrigin="anonymous"
         />
