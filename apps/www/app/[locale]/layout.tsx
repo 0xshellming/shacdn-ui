@@ -134,17 +134,20 @@ export default function LocaleLayout({
           data-ad-client="ca-pub-7271769670494785">
         </amp-auto-ads>
         <Script
+          id="adsense-script"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785"
           strategy="afterInteractive"
           crossOrigin="anonymous"
         />
         <Script
+          id="gtag-script"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-2VDJC7FNVL"
           strategy="beforeInteractive"
         ></Script>
         <Script
+          id="amp-auto-ads-script"
           async
           custom-element="amp-auto-ads"
           src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
