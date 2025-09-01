@@ -130,6 +130,9 @@ export default function LocaleLayout({
             </NextIntlClientProvider>
           </ThemeProvider>
         </body>
+        <amp-auto-ads type="adsense"
+          data-ad-client="ca-pub-7271769670494785">
+        </amp-auto-ads>
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7271769670494785"
@@ -141,6 +144,13 @@ export default function LocaleLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-2VDJC7FNVL"
           strategy="beforeInteractive"
         ></Script>
+        <Script
+          async
+          custom-element="amp-auto-ads"
+          src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
+          strategy="beforeInteractive"
+        >
+        </Script>
         <Script id="google-tag" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
